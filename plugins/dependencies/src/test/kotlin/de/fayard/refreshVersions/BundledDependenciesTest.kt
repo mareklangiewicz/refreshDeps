@@ -356,7 +356,7 @@ class BundledDependenciesTest {
         }
 
         testResources.resolve("objects-for-popular-deps.txt")
-            .writeText(buildString { appendMap(0, mapOf("Deps" to outputmap)) })
+            .writeText(buildString { appendMap(0, mapOf("DepsNew" to outputmap)) })
     }
 
     private fun getVersionCandidates(
