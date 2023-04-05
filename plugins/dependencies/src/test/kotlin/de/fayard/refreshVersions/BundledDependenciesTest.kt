@@ -31,6 +31,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.gradle.configurationcache.extensions.capitalized
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import testutils.getVersionCandidates
 import testutils.isInCi
 import testutils.parseRemovedDependencyNotations
@@ -296,10 +297,11 @@ class BundledDependenciesTest {
 
 
 
-
-
+    // ./gradlew :refreshVersions:cleanTest (if needed - especially after "successful" run)
+    // ./gradlew --info :refreshVersions:test --tests BundledDependenciesTest.generateDeps (takes around 11min)
+    @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
     @Test
-    fun generateObjectsForPopularDeps() {
+    fun generateDeps() {
         val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId }
 //            .drop(0).take(6) // FIXME: remove temporary limit
         val input = getVersionCandidates(modules)
@@ -357,7 +359,7 @@ class BundledDependenciesTest {
                     else append(", Ver(\"$ver\", $instability)")
                 }
             }
-            if (!allVerCorrect) appendLine(" ".repeat(indent) + "Deprecated(\"Warning: Some incorrect versions found (filtered out)\")")
+            if (!allVerCorrect) appendLine(" ".repeat(indent) + "@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")")
             appendLine(" ".repeat(indent) + "val $valname = Dep(\"$group\", \"$name\"$versStr)")
         }
 
