@@ -1,0 +1,16 @@
+object Deps {
+  object Androidx {
+    object Activity {
+        val activity = Dep("androidx.activity", "activity", Ver("1.7.0", 0), Ver("1.8.0-alpha02", 300))
+        val activity_compose = Dep("androidx.activity", "activity-compose", Ver("1.7.0", 0), Ver("1.8.0-alpha02", 300))
+        val activity_ktx = Dep("androidx.activity", "activity-ktx", Ver("1.7.0", 0), Ver("1.8.0-alpha02", 300))
+    }
+    object Annotation {
+        val annotation = Dep("androidx.annotation", "annotation", Ver("1.6.0", 0), Ver("1.7.0-alpha02", 300))
+        val annotation_experimental = Dep("androidx.annotation", "annotation-experimental", Ver("1.3.0", 0), Ver("1.4.0-dev01", 320))
+    }
+    object Appcompat {
+        val appcompat_resources = Dep("androidx.appcompat", "appcompat-resources", Ver("1.6.1", 0), Ver("1.7.0-alpha02", 300))
+    }
+  }
+}

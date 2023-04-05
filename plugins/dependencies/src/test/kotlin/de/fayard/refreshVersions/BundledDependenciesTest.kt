@@ -10,6 +10,7 @@ import de.fayard.refreshVersions.BundledDependenciesTest.Files.validatedDependen
 import de.fayard.refreshVersions.BundledDependenciesTest.Files.versionKeysDescription
 import de.fayard.refreshVersions.core.AbstractDependencyGroup
 import de.fayard.refreshVersions.core.ModuleId.Maven
+import de.fayard.refreshVersions.core.StabilityLevel
 import de.fayard.refreshVersions.core.Version
 import de.fayard.refreshVersions.core.internal.ArtifactVersionKeyReader
 import de.fayard.refreshVersions.core.internal.DependencyMapping
@@ -27,11 +28,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.gradle.configurationcache.extensions.capitalized
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import testutils.getVersionCandidates
 import testutils.isInCi
 import testutils.parseRemovedDependencyNotations
+import java.util.*
 
 class BundledDependenciesTest {
 
@@ -290,4 +293,101 @@ class BundledDependenciesTest {
     }
 
     private val rulesDir = mainResources.resolve("refreshVersions-rules")
+
+
+
+
+
+    @Test
+    fun generateObjectsForPopularDeps() {
+        val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId }
+            .drop(0).take(6) // FIXME: remove temporary limit
+        val input = getVersionCandidates(modules)
+
+        val outputmap = mutableMapOf<String, Any>()
+
+        // dep: group to name to vers
+        fun MutableMap<String, Any>.putDep(
+            path: List<String>,
+            valname: String,
+            dep: Pair<Pair<String, String>, List<Pair<String, Int>>>
+        ) {
+            if (path.isEmpty()) put(valname, dep)
+            else {
+                val phead = path.first()
+                val ptail = path.drop(1)
+                if (phead !in this) put(phead, mutableMapOf<String, Any>())
+                val map = get(phead)!! as MutableMap<String, Any>
+                map.putDep(ptail, valname, dep)
+            }
+        }
+
+        for ((moduleId, versions) in input) {
+            val path = moduleId.group.split(".").map { it.capitalized() }
+            val valname = moduleId.name.toLowerCase(Locale.US).replace('-', '_')
+            val vers = versions.map { it.value to it.stabilityLevel.instability }
+            outputmap.putDep(path, valname, moduleId.group to moduleId.name to vers)
+        }
+
+        fun StringBuilder.appendDep(
+            indent: Int,
+            valname: String,
+            dep: Pair<Pair<String, String>, List<Pair<String, Int>>>
+        ) {
+            val (groupAndName, vers) = dep
+            val (group, name) = groupAndName
+            val versStr = buildString {
+                for ((ver, instability) in vers)
+                    append(", Ver(\"$ver\", $instability)")
+            }
+            appendLine(" ".repeat(indent) + "val $valname = Dep(\"$group\", \"$name\"$versStr)")
+        }
+
+        fun StringBuilder.appendMap(indent: Int, map: Map<String, Any>) {
+            val entriesSorted = map.entries.sortedBy { it.key }
+            val (entriesForGroups, entriesForDeps) = entriesSorted.partition { it.key[0].isUpperCase() }
+            for ((valname, dep) in entriesForDeps)
+                appendDep(indent + 2, valname, dep as Pair<Pair<String, String>, List<Pair<String, Int>>>)
+            for ((objectName, content) in entriesForGroups) {
+                appendLine(" ".repeat(indent) + "object $objectName {")
+                appendMap(indent + 2, content as Map<String, Any>)
+                appendLine(" ".repeat(indent) + "}")
+            }
+        }
+
+        testResources.resolve("objects-for-popular-deps.txt")
+            .writeText(buildString { appendMap(0, mapOf("Deps" to outputmap)) })
+    }
+
+    private fun getVersionCandidates(
+        modules: List<Maven>,
+        reposUrls: List<String> = listOf(
+            "https://repo.maven.apache.org/maven2/",
+            "https://dl.google.com/dl/android/maven2/",
+            "https://plugins.gradle.org/m2/"
+
+        )
+    ): Map<Maven, List<Version>> = runBlocking {
+        modules.associateWith { moduleId ->
+            // delay(200) // FIXME: remove temporary slowdown (or not?)
+            getVersionCandidates(
+                httpClient = defaultHttpClient,
+                mavenModuleId = moduleId,
+                repoUrls = reposUrls,
+                currentVersion = Version("")
+            )
+        }
+    }
+
+    private val StabilityLevel.instability get() = when (this) {
+        StabilityLevel.Stable -> 0
+        StabilityLevel.ReleaseCandidate -> 100
+        StabilityLevel.Milestone -> 120
+        StabilityLevel.EarlyAccessProgram -> 140
+        StabilityLevel.Beta -> 200
+        StabilityLevel.Alpha -> 300
+        StabilityLevel.Development -> 320
+        StabilityLevel.Preview -> 400
+        StabilityLevel.Snapshot -> 500
+    }
 }
