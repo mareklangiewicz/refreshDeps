@@ -347,7 +347,7 @@ class BundledDependenciesTest {
             val entriesSorted = map.entries.sortedBy { it.key }
             val (entriesForGroups, entriesForDeps) = entriesSorted.partition { it.key[0].isUpperCase() }
             for ((valname, dep) in entriesForDeps)
-                appendDep(indent + 2, valname, dep as Pair<Pair<String, String>, List<Pair<String, Int>>>)
+                appendDep(indent, valname, dep as Pair<Pair<String, String>, List<Pair<String, Int>>>)
             for ((objectName, content) in entriesForGroups) {
                 appendLine(" ".repeat(indent) + "object $objectName {")
                 appendMap(indent + 2, content as Map<String, Any>)
