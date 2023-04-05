@@ -323,8 +323,13 @@ class BundledDependenciesTest {
         }
 
         for ((moduleId, versions) in input) {
-            val path = moduleId.group.split(".").map { it.capitalized() }
-            val valname = moduleId.name.toLowerCase(Locale.US).replace('-', '_')
+            val path = moduleId.group
+                .split(".")
+                .map { it.capitalized().replace('-', '_') }
+            val valname = moduleId.name
+                .toLowerCase(Locale.US)
+                .replace('-', '_')
+                .replace('.', '_') // yes it happens: "io.arrow-kt.analysis.kotlin:io.arrow-kt.analysis.kotlin.gradle.plugin
             val vers = versions.map { it.value to it.stabilityLevel.instability }
             outputmap.putDep(path, valname, moduleId.group to moduleId.name to vers)
         }
