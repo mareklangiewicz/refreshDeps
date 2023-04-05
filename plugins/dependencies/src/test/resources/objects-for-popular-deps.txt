@@ -652,12 +652,8 @@ object DepsNew {
             val play_services_cast_framework = Dep("com.google.android.gms", "play-services-cast-framework", Ver("21.3.0", 0))
             val play_services_cast_tv = Dep("com.google.android.gms", "play-services-cast-tv", Ver("21.0.0", 0))
             val play_services_cronet = Dep("com.google.android.gms", "play-services-cronet", Ver("18.0.1", 0))
-            val play_services_drive = Dep("com.google.android.gms", "play-services-drive", Ver("<?xml version="1.0" encoding="UTF-8"?>
-<metadata>
-  <versioning>
-    <lastUpdated>20181210124113</lastUpdated>
-  </versioning>
-</metadata>", 0), Ver("17.0.0", 0))
+            @Deprecated("Warning: Some incorrect versions found (filtered out)")
+            val play_services_drive = Dep("com.google.android.gms", "play-services-drive", Ver("17.0.0", 0))
             val play_services_fido = Dep("com.google.android.gms", "play-services-fido", Ver("11.8.0", 0), Ver("20.0.1", 0))
             val play_services_fitness = Dep("com.google.android.gms", "play-services-fitness", Ver("21.1.0", 0))
             val play_services_games = Dep("com.google.android.gms", "play-services-games", Ver("23.1.0", 0))

@@ -336,10 +336,23 @@ class BundledDependenciesTest {
         ) {
             val (groupAndName, vers) = dep
             val (group, name) = groupAndName
+
+            var allVerCorrect = true
+            // This flag is workaround for error when getting "com.google.android.gms:play-services-drive"
+            //   I get some xml inside version.. have to filter it out and mark whole module as dangerous/deprecated
+            //   (todo_someday: fix in upstream refreshVersions repo)
+
             val versStr = buildString {
-                for ((ver, instability) in vers)
-                    append(", Ver(\"$ver\", $instability)")
+                for ((ver, instability) in vers) {
+                    if ('<' in ver || '>' in ver) {
+                        allVerCorrect = false
+                        println("Incorrect version found for module $name:")
+                        println(ver)
+                    }
+                    else append(", Ver(\"$ver\", $instability)")
+                }
             }
+            if (!allVerCorrect) appendLine(" ".repeat(indent) + "Deprecated(\"Warning: Some incorrect versions found (filtered out)\")")
             appendLine(" ".repeat(indent) + "val $valname = Dep(\"$group\", \"$name\"$versStr)")
         }
 
