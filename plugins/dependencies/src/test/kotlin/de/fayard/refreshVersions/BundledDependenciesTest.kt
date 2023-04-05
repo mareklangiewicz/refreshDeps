@@ -301,7 +301,7 @@ class BundledDependenciesTest {
     @Test
     fun generateObjectsForPopularDeps() {
         val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId }
-            .drop(0).take(6) // FIXME: remove temporary limit
+//            .drop(0).take(6) // FIXME: remove temporary limit
         val input = getVersionCandidates(modules)
 
         val outputmap = mutableMapOf<String, Any>()
