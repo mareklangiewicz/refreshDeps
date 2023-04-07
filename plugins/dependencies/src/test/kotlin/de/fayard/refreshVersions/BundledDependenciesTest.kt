@@ -327,14 +327,15 @@ class BundledDependenciesTest {
                 .split(".")
                 .map { it.myCamelCase().replace('-', '_') }
 
-            val valName = moduleId.name.run {
-                if (matches(Regex("${path.last()}\\W\\w.*"))) substring(path.last().length + 1)
-                else this
-            }
+            val valName = moduleId.name
                 .toLowerCase(Locale.US)
                 .replace('-', '_')
-                .replace('.', '_')
-                    // yes it happens: "io.arrow-kt.analysis.kotlin:io.arrow-kt.analysis.kotlin.gradle.plugin
+                .replace('.', '_') // yes it happens: "io.arrow-kt.analysis.kotlin:io.arrow-kt.analysis.kotlin.gradle.plugin
+                .run {
+                    val lpath = path.last().toLowerCase()
+                    if (matches(Regex("$lpath\\W\\w.*"))) substring(lpath.length + 1)
+                    else this
+                }
 
             val vers = versions.map { it.value to it.stabilityLevel.instability }
             outputmap.putDep(path, valName, moduleId.group to moduleId.name to vers)
@@ -420,8 +421,12 @@ class BundledDependenciesTest {
 
 private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
     if (isEmpty()) return this.toString()
-    val myWords = listOf("marek", "langiewicz", "kotlin", "spring", "framework", "assert", "java",
-        "reactive", "jake", "wharton", "rx", "mock", "tuple", "abcd", "ktor", "git", "sql", "square", "unit")
+    val myWords = listOf("app", "layout", "content", "cursor", "adapter", "marek", "langiewicz", "text",
+        "provider", "touch", "graph", "team",
+        "kotlin", "spring", "framework", "assert", "java", "store", "data", "document", "file", "dynamic", "animation",
+        "local", "global", "broadcast", "manager", "media", "router", "view", "share", "target",
+        "reactive", "jake", "wharton", "rx", "mock", "tuple", "abcd", "ktor", "git", "sqlite", "sql", "square", "unit", "kit")
+        .sortedByDescending { it.length } // longer known words should be before shorter prefixes (sqlite before sql, etc.)
     for (myWord in myWords) if (startsWith(myWord, ignoreCase = true))
         return myWord.capitalize() + drop(myWord.length).myCamelCase(upUnknownFirst = true)
     return first().upIf(upUnknownFirst) + drop(1).myCamelCase(false)
