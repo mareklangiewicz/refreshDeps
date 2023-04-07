@@ -302,8 +302,8 @@ class BundledDependenciesTest {
     @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
     @Test
     fun generateDeps() {
-        val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId }
-//            .drop(0).take(6) // FIXME: remove temporary limit
+        val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId } + getLangaraModules()
+            .drop(0).take(10) // FIXME: remove temporary limit
         val input = getVersionCandidates(modules)
 
         val outputmap = mutableMapOf<String, Any>()
@@ -327,13 +327,18 @@ class BundledDependenciesTest {
         for ((moduleId, versions) in input) {
             val path = moduleId.group
                 .split(".")
-                .map { it.capitalized().replace('-', '_') }
-            val valname = moduleId.name
+                .map { it.myCamelCase().replace('-', '_') }
+
+            val valName = moduleId.name.run {
+                if (matches(Regex("${path.last()}\\W\\w.*"))) substring(path.last().length + 1)
+                else this
+            }
                 .toLowerCase(Locale.US)
                 .replace('-', '_')
                 .replace('.', '_') // yes it happens: "io.arrow-kt.analysis.kotlin:io.arrow-kt.analysis.kotlin.gradle.plugin
+
             val vers = versions.map { it.value to it.stabilityLevel.instability }
-            outputmap.putDep(path, valname, moduleId.group to moduleId.name to vers)
+            outputmap.putDep(path, valName, moduleId.group to moduleId.name to vers)
         }
 
         fun StringBuilder.appendDep(
@@ -359,8 +364,8 @@ class BundledDependenciesTest {
                     else append(", Ver(\"$ver\", $instability)")
                 }
             }
-            if (!allVerCorrect) appendLine(" ".repeat(indent) + "@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")")
-            appendLine(" ".repeat(indent) + "val $valname = Dep(\"$group\", \"$name\"$versStr)")
+            if (!allVerCorrect) appendLine("@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")".padStart(indent))
+            appendLine("val $valname = Dep(\"$group\", \"$name\"$versStr)".padStart(indent))
         }
 
         fun StringBuilder.appendMap(indent: Int, map: Map<String, Any>) {
@@ -369,14 +374,14 @@ class BundledDependenciesTest {
             for ((valname, dep) in entriesForDeps)
                 appendDep(indent, valname, dep as Pair<Pair<String, String>, List<Pair<String, Int>>>)
             for ((objectName, content) in entriesForGroups) {
-                appendLine(" ".repeat(indent) + "object $objectName {")
-                appendMap(indent + 2, content as Map<String, Any>)
-                appendLine(" ".repeat(indent) + "}")
+                appendLine("object $objectName {".padStart(indent))
+                appendMap(indent + 4, content as Map<String, Any>)
+                appendLine("}".padStart(indent))
             }
         }
 
-        testResources.resolve("objects-for-popular-deps.txt")
-            .writeText(buildString { appendMap(0, mapOf("DepsNew" to outputmap)) })
+        testResources.resolve("objects-for-deps.txt")
+            .writeText(buildString { appendMap(4, outputmap) })
     }
 
     private fun getVersionCandidates(
@@ -411,3 +416,28 @@ class BundledDependenciesTest {
         StabilityLevel.Snapshot -> 500
     }
 }
+
+private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
+    val myWords = listOf("marek", "langiewicz", "kotlin", "spring", "framework", "assert", "java",
+        "reactive", "jake", "wharton", "rx", "mock", "tuple", "abcd", "ktor", "git", "sql", "square", "unit")
+    for (myWord in myWords) if (startsWith(myWord, ignoreCase = true))
+        return myWord.capitalize() + drop(myWord.length).myCamelCase(upUnknownFirst = true)
+    return first().upIf(upUnknownFirst) + drop(1).myCamelCase(false)
+}
+
+private fun Char.upIf(up: Boolean) = if (up) toUpperCase() else this
+
+
+// TODO_later: fetch the list from maven central instead of hardcoding
+private fun getLangaraModules(): List<Maven> = listOf(
+    "abcdk", "abcdk-js", "abcdk-jvm", "abcdk-linuxx64",
+    "kommandline", "kommandline-js", "kommandline-jvm",
+    "rxmock", "rxmock-jvm", "smokk",
+    "smokk-jvm", "smokkx", "smokkx-jvm",
+    "template-andro-app", "template-andro-lib", "template-mpp-lib", "template-mpp-lib-js", "template-mpp-lib-jvm",
+    "tuplek", "tuplek-js", "tuplek-jvm", "tuplek-linuxx64",
+    "upue", "upue-js", "upue-jvm", "upue-linuxx64", "upue-test", "upue-test-js", "upue-test-jvm",
+    "uspek", "uspek-js", "uspek-jvm", "uspek-linuxx64", "uspekx",
+    "uspekx-js", "uspekx-junit4", "uspekx-junit4-jvm", "uspekx-junit5", "uspekx-junit5-jvm", "uspekx-jvm", "uspekx-linuxx64",
+    "uwidgets", "uwidgets-js", "uwidgets-jvm",
+).map { Maven("pl.mareklangiewicz", it) }
