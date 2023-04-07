@@ -8,11 +8,11 @@
             val annotation = Dep("androidx.annotation", "annotation", Ver("1.6.0", 0), Ver("1.7.0-alpha02", 300))
             val annotation_experimental = Dep("androidx.annotation", "annotation-experimental", Ver("1.3.0", 0), Ver("1.4.0-dev01", 320))
         }
-        object Appcompat {
+        object AppCompat {
             val appcompat = Dep("androidx.appcompat", "appcompat", Ver("1.6.1", 0), Ver("1.7.0-alpha02", 300))
             val appcompat_resources = Dep("androidx.appcompat", "appcompat-resources", Ver("1.6.1", 0), Ver("1.7.0-alpha02", 300))
         }
-        object Appsearch {
+        object AppSearch {
             val appsearch = Dep("androidx.appsearch", "appsearch", Ver("1.1.0-alpha02", 300))
             val appsearch_builtin_types = Dep("androidx.appsearch", "appsearch-builtin-types", Ver("1.1.0-alpha02", 300))
             val appsearch_compiler = Dep("androidx.appsearch", "appsearch-compiler", Ver("1.1.0-alpha02", 300))
@@ -26,7 +26,7 @@
                 val core_testing = Dep("androidx.arch.core", "core-testing", Ver("2.2.0", 0))
             }
         }
-        object Asynclayoutinflater {
+        object AsyncLayoutInflater {
             val asynclayoutinflater = Dep("androidx.asynclayoutinflater", "asynclayoutinflater", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
             val asynclayoutinflater_appcompat = Dep("androidx.asynclayoutinflater", "asynclayoutinflater-appcompat", Ver("1.1.0-alpha01", 300))
         }
@@ -64,7 +64,7 @@
                 val app_testing = Dep("androidx.car.app", "app-testing", Ver("1.2.0", 0), Ver("1.3.0-rc01", 100), Ver("1.4.0-alpha01", 300))
             }
         }
-        object Cardview {
+        object CardView {
             val cardview = Dep("androidx.cardview", "cardview", Ver("1.0.0", 0))
         }
         object Collection {
@@ -125,14 +125,14 @@
             val concurrent_futures = Dep("androidx.concurrent", "concurrent-futures", Ver("1.1.0", 0), Ver("1.2.0-alpha01", 300))
             val concurrent_futures_ktx = Dep("androidx.concurrent", "concurrent-futures-ktx", Ver("1.1.0", 0), Ver("1.2.0-alpha01", 300))
         }
-        object Constraintlayout {
+        object ConstraintLayout {
             val constraintlayout = Dep("androidx.constraintlayout", "constraintlayout", Ver("2.1.4", 0), Ver("2.2.0-alpha09", 300))
             val constraintlayout_compose = Dep("androidx.constraintlayout", "constraintlayout-compose", Ver("1.0.1", 0), Ver("1.1.0-alpha09", 300))
         }
-        object Contentpager {
+        object ContentPager {
             val contentpager = Dep("androidx.contentpager", "contentpager", Ver("1.0.0", 0))
         }
-        object Coordinatorlayout {
+        object CoordinatorLayout {
             val coordinatorlayout = Dep("androidx.coordinatorlayout", "coordinatorlayout", Ver("1.2.0", 0))
         }
         object Core {
@@ -150,14 +150,14 @@
                 val uwb_rxjava3 = Dep("androidx.core.uwb", "uwb-rxjava3", Ver("1.0.0-alpha05", 300))
             }
         }
-        object Cursoradapter {
+        object CursorAdapter {
             val cursoradapter = Dep("androidx.cursoradapter", "cursoradapter", Ver("1.0.0", 0))
         }
-        object Customview {
+        object CustomView {
             val customview = Dep("androidx.customview", "customview", Ver("1.1.0", 0), Ver("1.2.0-alpha02", 300))
             val customview_poolingcontainer = Dep("androidx.customview", "customview-poolingcontainer", Ver("1.0.0", 0))
         }
-        object Datastore {
+        object DataStore {
             val datastore = Dep("androidx.datastore", "datastore", Ver("1.0.0", 0), Ver("1.1.0-alpha04", 300))
             val datastore_core = Dep("androidx.datastore", "datastore-core", Ver("1.0.0", 0), Ver("1.1.0-alpha04", 300))
             val datastore_core_okio = Dep("androidx.datastore", "datastore-core-okio", Ver("1.1.0-alpha04", 300))
@@ -168,16 +168,16 @@
             val datastore_rxjava2 = Dep("androidx.datastore", "datastore-rxJava2", Ver("1.0.0", 0), Ver("1.1.0-alpha04", 300))
             val datastore_rxjava3 = Dep("androidx.datastore", "datastore-rxJava3", Ver("1.0.0", 0), Ver("1.1.0-alpha04", 300))
         }
-        object Documentfile {
+        object DocumentFile {
             val documentfile = Dep("androidx.documentfile", "documentfile", Ver("1.0.1", 0), Ver("1.1.0-alpha01", 300))
         }
         object Draganddrop {
             val draganddrop = Dep("androidx.draganddrop", "draganddrop", Ver("1.0.0", 0))
         }
-        object Drawerlayout {
+        object DrawerLayout {
             val drawerlayout = Dep("androidx.drawerlayout", "drawerlayout", Ver("1.2.0", 0))
         }
-        object Dynamicanimation {
+        object DynamicAnimation {
             val dynamicanimation = Dep("androidx.dynamicanimation", "dynamicanimation", Ver("1.0.0", 0), Ver("1.1.0-alpha03", 300))
             val dynamicanimation_ktx = Dep("androidx.dynamicanimation", "dynamicanimation-ktx", Ver("1.0.0-alpha03", 300))
         }
@@ -216,10 +216,10 @@
             val glance_appwidget = Dep("androidx.glance", "glance-appwidget", Ver("1.0.0-alpha05", 300))
             val glance_wear_tiles = Dep("androidx.glance", "glance-wear-tiles", Ver("1.0.0-alpha05", 300))
         }
-        object Graphics {
+        object GraphIcs {
             val graphics_core = Dep("androidx.graphics", "graphics-core", Ver("1.0.0-alpha03", 300))
         }
-        object Gridlayout {
+        object GridLayout {
             val gridlayout = Dep("androidx.gridlayout", "gridlayout", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
         }
         object Health {
@@ -276,7 +276,7 @@
         object Loader {
             val loader = Dep("androidx.loader", "loader", Ver("1.1.0", 0))
         }
-        object Localbroadcastmanager {
+        object LocalBroadcastManager {
             val localbroadcastmanager = Dep("androidx.localbroadcastmanager", "localbroadcastmanager", Ver("1.1.0", 0))
         }
         object Media {
@@ -312,7 +312,7 @@
             val media3_ui = Dep("androidx.media3", "media3-ui", Ver("1.0.0", 0))
             val media3_ui_leanback = Dep("androidx.media3", "media3-ui-leanback", Ver("1.0.0", 0))
         }
-        object Mediarouter {
+        object MediaRouter {
             val mediarouter = Dep("androidx.mediarouter", "mediarouter", Ver("1.3.1", 0), Ver("1.4.0-rc01", 100), Ver("1.6.0-alpha02", 300))
         }
         object Metrics {
@@ -363,7 +363,7 @@
         object Recommendation {
             val recommendation = Dep("androidx.recommendation", "recommendation", Ver("1.0.0", 0))
         }
-        object Recyclerview {
+        object RecyclerView {
             val recyclerview = Dep("androidx.recyclerview", "recyclerview", Ver("1.3.0", 0))
             val recyclerview_selection = Dep("androidx.recyclerview", "recyclerview-selection", Ver("1.1.0", 0), Ver("1.2.0-alpha01", 300))
         }
@@ -396,7 +396,7 @@
             val security_crypto_ktx = Dep("androidx.security", "security-crypto-ktx", Ver("1.1.0-alpha05", 300))
             val security_identity_credential = Dep("androidx.security", "security-identity-credential", Ver("1.0.0-alpha03", 300))
         }
-        object Sharetarget {
+        object ShareTarget {
             val sharetarget = Dep("androidx.sharetarget", "sharetarget", Ver("1.2.0", 0))
         }
         object Slice {
@@ -405,10 +405,10 @@
             val slice_core = Dep("androidx.slice", "slice-core", Ver("1.0.0", 0), Ver("1.1.0-alpha02", 300))
             val slice_view = Dep("androidx.slice", "slice-view", Ver("1.0.0", 0), Ver("1.1.0-alpha02", 300))
         }
-        object Slidingpanelayout {
+        object SlidingpaneLayout {
             val slidingpanelayout = Dep("androidx.slidingpanelayout", "slidingpanelayout", Ver("1.2.0", 0))
         }
-        object SqlIte {
+        object Sqlite {
             val sqlite = Dep("androidx.sqlite", "sqlite", Ver("2.3.1", 0), Ver("2.4.0-alpha01", 300))
             val sqlite_framework = Dep("androidx.sqlite", "sqlite-framework", Ver("2.3.1", 0), Ver("2.4.0-alpha01", 300))
             val sqlite_ktx = Dep("androidx.sqlite", "sqlite-ktx", Ver("2.3.1", 0), Ver("2.4.0-alpha01", 300))
@@ -416,7 +416,7 @@
         object Startup {
             val startup_runtime = Dep("androidx.startup", "startup-runtime", Ver("1.1.1", 0), Ver("1.2.0-alpha02", 300))
         }
-        object Swiperefreshlayout {
+        object SwiperefreshLayout {
             val swiperefreshlayout = Dep("androidx.swiperefreshlayout", "swiperefreshlayout", Ver("1.1.0", 0), Ver("1.2.0-alpha01", 300))
         }
         object Test {
@@ -453,7 +453,7 @@
                 val uiautomator = Dep("androidx.test.uiautomator", "uiautomator", Ver("2.2.0", 0), Ver("2.3.0-alpha02", 300))
             }
         }
-        object Textclassifier {
+        object TextClassifier {
             val textclassifier = Dep("androidx.textclassifier", "textclassifier", Ver("1.0.0-alpha04", 300))
         }
         object Tracing {
@@ -469,7 +469,7 @@
             val tv_foundation = Dep("androidx.tv", "tv-foundation", Ver("1.0.0-alpha05", 300))
             val tv_material = Dep("androidx.tv", "tv-material", Ver("1.0.0-alpha05", 300))
         }
-        object Tvprovider {
+        object TvProvider {
             val tvprovider = Dep("androidx.tvprovider", "tvprovider", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
         }
         object Vectordrawable {
@@ -480,10 +480,10 @@
         object Versionedparcelable {
             val versionedparcelable = Dep("androidx.versionedparcelable", "versionedparcelable", Ver("1.1.1", 0))
         }
-        object Viewpager {
+        object ViewPager {
             val viewpager = Dep("androidx.viewpager", "viewpager", Ver("1.0.0", 0), Ver("1.1.0-alpha01", 300))
         }
-        object Viewpager2 {
+        object ViewPager2 {
             val viewpager2 = Dep("androidx.viewpager2", "viewpager2", Ver("1.0.0", 0), Ver("1.1.0-beta01", 200))
         }
         object Wear {
@@ -512,7 +512,7 @@
                 val watchface_editor = Dep("androidx.wear.watchface", "watchface-editor", Ver("1.1.1", 0), Ver("1.2.0-alpha07", 300))
             }
         }
-        object Webkit {
+        object WebKit {
             val webkit = Dep("androidx.webkit", "webkit", Ver("1.6.1", 0), Ver("1.7.0-beta01", 200))
         }
         object Window {
@@ -552,7 +552,7 @@
         }
     }
     object Co {
-        object Touchlab {
+        object TouchLab {
             val kermit = Dep("co.touchlab", "kermit", Ver("1.2.2", 0), Ver("2.0.0-RC4", 100))
             val kermit_bugsnag = Dep("co.touchlab", "kermit-bugsnag", Ver("1.2.2", 0), Ver("2.0.0-RC4", 100))
             val kermit_bugsnag_test = Dep("co.touchlab", "kermit-bugsnag-test", Ver("1.1.3", 0), Ver("1.2.0-M2", 120))
@@ -583,7 +583,7 @@
                 }
             }
         }
-        object Apollographql {
+        object ApolloGraphQl {
             object Apollo3 {
                 val apollo_adapters = Dep("com.apollographql.apollo3", "apollo-adapters", Ver("3.8.0", 0))
                 val apollo_api = Dep("com.apollographql.apollo3", "apollo-api", Ver("3.8.0", 0))
@@ -598,7 +598,7 @@
             }
         }
         object GitHub {
-            object Chuckerteam {
+            object ChuckerTeam {
                 object Chucker {
                     val library = Dep("com.github.chuckerteam.chucker", "library", Ver("3.5.2", 0))
                     val library_no_op = Dep("com.github.chuckerteam.chucker", "library-no-op", Ver("3.5.2", 0))
@@ -802,7 +802,7 @@
                     val maps_utils_ktx = Dep("com.google.maps.android", "maps-utils-ktx", Ver("3.4.0", 0))
                 }
             }
-            object Mlkit {
+            object MlKit {
                 val barcode_scanning = Dep("com.google.mlkit", "barcode-scanning", Ver("17.1.0", 0))
                 val digital_ink_recognition = Dep("com.google.mlkit", "digital-ink-recognition", Ver("18.1.0", 0))
                 val entity_extraction = Dep("com.google.mlkit", "entity-extraction", Ver("16.0.0-beta4", 200))
