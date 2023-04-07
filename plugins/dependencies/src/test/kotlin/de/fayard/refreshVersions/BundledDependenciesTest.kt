@@ -28,7 +28,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.gradle.configurationcache.extensions.capitalized
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
@@ -303,7 +302,6 @@ class BundledDependenciesTest {
     @Test
     fun generateDeps() {
         val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId } + getLangaraModules()
-            .drop(0).take(10) // FIXME: remove temporary limit
         val input = getVersionCandidates(modules)
 
         val outputmap = mutableMapOf<String, Any>()
@@ -335,11 +333,14 @@ class BundledDependenciesTest {
             }
                 .toLowerCase(Locale.US)
                 .replace('-', '_')
-                .replace('.', '_') // yes it happens: "io.arrow-kt.analysis.kotlin:io.arrow-kt.analysis.kotlin.gradle.plugin
+                .replace('.', '_')
+                    // yes it happens: "io.arrow-kt.analysis.kotlin:io.arrow-kt.analysis.kotlin.gradle.plugin
 
             val vers = versions.map { it.value to it.stabilityLevel.instability }
             outputmap.putDep(path, valName, moduleId.group to moduleId.name to vers)
         }
+
+        fun String.withIndent(indent: Int = 4) = " ".repeat(indent) + this
 
         fun StringBuilder.appendDep(
             indent: Int,
@@ -364,8 +365,8 @@ class BundledDependenciesTest {
                     else append(", Ver(\"$ver\", $instability)")
                 }
             }
-            if (!allVerCorrect) appendLine("@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")".padStart(indent))
-            appendLine("val $valname = Dep(\"$group\", \"$name\"$versStr)".padStart(indent))
+            if (!allVerCorrect) appendLine("@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")".withIndent(indent))
+            appendLine("val $valname = Dep(\"$group\", \"$name\"$versStr)".withIndent(indent))
         }
 
         fun StringBuilder.appendMap(indent: Int, map: Map<String, Any>) {
@@ -374,9 +375,9 @@ class BundledDependenciesTest {
             for ((valname, dep) in entriesForDeps)
                 appendDep(indent, valname, dep as Pair<Pair<String, String>, List<Pair<String, Int>>>)
             for ((objectName, content) in entriesForGroups) {
-                appendLine("object $objectName {".padStart(indent))
+                appendLine("object $objectName {".withIndent(indent))
                 appendMap(indent + 4, content as Map<String, Any>)
-                appendLine("}".padStart(indent))
+                appendLine("}".withIndent(indent))
             }
         }
 
@@ -418,6 +419,7 @@ class BundledDependenciesTest {
 }
 
 private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
+    if (isEmpty()) return this.toString()
     val myWords = listOf("marek", "langiewicz", "kotlin", "spring", "framework", "assert", "java",
         "reactive", "jake", "wharton", "rx", "mock", "tuple", "abcd", "ktor", "git", "sql", "square", "unit")
     for (myWord in myWords) if (startsWith(myWord, ignoreCase = true))
