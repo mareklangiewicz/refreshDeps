@@ -30,7 +30,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import testutils.getVersionCandidates
 import testutils.isInCi
 import testutils.parseRemovedDependencyNotations
@@ -298,7 +297,7 @@ class BundledDependenciesTest {
 
     // ./gradlew :refreshVersions:cleanTest (if needed - especially after "successful" run)
     // ./gradlew --info :refreshVersions:test --tests BundledDependenciesTest.generateDeps (takes around 11min)
-    @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
+//    @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
     @Test
     fun generateDeps() {
         val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId } + getLangaraModules()
@@ -309,16 +308,16 @@ class BundledDependenciesTest {
         // dep: group to name to vers
         fun MutableMap<String, Any>.putDep(
             path: List<String>,
-            valname: String,
+            valName: String,
             dep: Pair<Pair<String, String>, List<Pair<String, Int>>>
         ) {
-            if (path.isEmpty()) put(valname, dep)
+            if (path.isEmpty()) put(valName, dep)
             else {
                 val phead = path.first()
                 val ptail = path.drop(1)
                 if (phead !in this) put(phead, mutableMapOf<String, Any>())
                 val map = get(phead)!! as MutableMap<String, Any>
-                map.putDep(ptail, valname, dep)
+                map.putDep(ptail, valName, dep)
             }
         }
 
@@ -332,8 +331,8 @@ class BundledDependenciesTest {
                 .replace('-', '_')
                 .replace('.', '_') // yes it happens: "io.arrow-kt.analysis.kotlin:io.arrow-kt.analysis.kotlin.gradle.plugin
                 .run {
-                    val lpath = path.last().toLowerCase()
-                    if (matches(Regex("$lpath\\W\\w.*"))) substring(lpath.length + 1)
+                    val prefix = path.last().toLowerCase() + '_'
+                    if (matches(Regex("$prefix\\w.*"))) substring(prefix.length)
                     else this
                 }
 
