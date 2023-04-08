@@ -30,6 +30,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable
 import testutils.getVersionCandidates
 import testutils.isInCi
 import testutils.parseRemovedDependencyNotations
@@ -297,7 +298,7 @@ class BundledDependenciesTest {
 
     // ./gradlew :refreshVersions:cleanTest (if needed - especially after "successful" run)
     // ./gradlew --info :refreshVersions:test --tests BundledDependenciesTest.generateDeps (takes around 11min)
-//    @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
+    @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
     @Test
     fun generateDeps() {
         val modules: List<Maven> = getArtifactNameToConstantMapping().map { it.moduleId } + getLangaraModules()
@@ -305,21 +306,6 @@ class BundledDependenciesTest {
 
         val outputmap = mutableMapOf<String, Any>()
 
-        // dep: group to name to vers
-        fun MutableMap<String, Any>.putDep(
-            path: List<String>,
-            valName: String,
-            dep: Pair<Pair<String, String>, List<Pair<String, Int>>>
-        ) {
-            if (path.isEmpty()) put(valName, dep)
-            else {
-                val phead = path.first()
-                val ptail = path.drop(1)
-                if (phead !in this) put(phead, mutableMapOf<String, Any>())
-                val map = get(phead)!! as MutableMap<String, Any>
-                map.putDep(ptail, valName, dep)
-            }
-        }
 
         for ((moduleId, versions) in input) {
             val path = moduleId.group
@@ -340,49 +326,8 @@ class BundledDependenciesTest {
             outputmap.putDep(path, valName, moduleId.group to moduleId.name to vers)
         }
 
-        fun String.withIndent(indent: Int = 4) = " ".repeat(indent) + this
-
-        fun StringBuilder.appendDep(
-            indent: Int,
-            valname: String,
-            dep: Pair<Pair<String, String>, List<Pair<String, Int>>>
-        ) {
-            val (groupAndName, vers) = dep
-            val (group, name) = groupAndName
-
-            var allVerCorrect = true
-            // This flag is workaround for error when getting "com.google.android.gms:play-services-drive"
-            //   I get some xml inside version.. have to filter it out and mark whole module as dangerous/deprecated
-            //   (todo_someday: fix in upstream refreshVersions repo)
-
-            val versStr = buildString {
-                for ((ver, instability) in vers) {
-                    if ('<' in ver || '>' in ver) {
-                        allVerCorrect = false
-                        println("Incorrect version found for module $name:")
-                        println(ver)
-                    }
-                    else append(", Ver(\"$ver\", $instability)")
-                }
-            }
-            if (!allVerCorrect) appendLine("@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")".withIndent(indent))
-            appendLine("val $valname = Dep(\"$group\", \"$name\"$versStr)".withIndent(indent))
-        }
-
-        fun StringBuilder.appendMap(indent: Int, map: Map<String, Any>) {
-            val entriesSorted = map.entries.sortedBy { it.key }
-            val (entriesForGroups, entriesForDeps) = entriesSorted.partition { it.key[0].isUpperCase() }
-            for ((valname, dep) in entriesForDeps)
-                appendDep(indent, valname, dep as Pair<Pair<String, String>, List<Pair<String, Int>>>)
-            for ((objectName, content) in entriesForGroups) {
-                appendLine("object $objectName {".withIndent(indent))
-                appendMap(indent + 4, content as Map<String, Any>)
-                appendLine("}".withIndent(indent))
-            }
-        }
-
         testResources.resolve("objects-for-deps.txt")
-            .writeText(buildString { appendMap(4, outputmap) })
+            .writeText(buildString { appendDepTree(4, outputmap) })
     }
 
     private fun getVersionCandidates(
@@ -417,6 +362,67 @@ class BundledDependenciesTest {
         StabilityLevel.Snapshot -> 500
     }
 }
+
+
+private typealias GroupAndName = Pair<String, String>
+private typealias Ver = Pair<String, Int>
+private typealias Vers = List<Ver>
+private typealias Dep = Pair<GroupAndName, Vers>
+private typealias DepTree = MutableMap<String, Any>
+
+@Suppress("UNCHECKED_CAST")
+private fun DepTree.putDep(
+    path: List<String>,
+    valName: String,
+    dep: Dep
+) {
+    if (path.isEmpty()) put(valName, dep)
+    else {
+        val phead = path.first()
+        val ptail = path.drop(1)
+        if (phead !in this) put(phead, mutableMapOf<String, Any>())
+        val map = get(phead)!! as DepTree
+        map.putDep(ptail, valName, dep)
+    }
+}
+
+private fun StringBuilder.appendDep(indent: Int, valname: String, dep: Dep) {
+    val (groupAndName, vers) = dep
+    val (group, name) = groupAndName
+
+    var allVerCorrect = true
+    // This flag is workaround for error when getting "com.google.android.gms:play-services-drive"
+    //   I get some xml inside version.. have to filter it out and mark whole module as dangerous/deprecated
+    //   (todo_someday: fix in upstream refreshVersions repo)
+
+    val versStr = buildString {
+        for ((ver, instability) in vers) {
+            if ('<' in ver || '>' in ver) {
+                allVerCorrect = false
+                println("Incorrect version found for module $name:")
+                println(ver)
+            }
+            else append(", Ver(\"$ver\", $instability)")
+        }
+    }
+    if (!allVerCorrect) appendLine("@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")".withIndent(indent))
+    appendLine("val $valname = Dep(\"$group\", \"$name\"$versStr)".withIndent(indent))
+}
+
+@Suppress("UNCHECKED_CAST")
+private fun StringBuilder.appendDepTree(indent: Int, tree: DepTree) {
+    val entriesSorted = tree.entries.sortedBy { it.key }
+    val (entriesForGroups, entriesForDeps) = entriesSorted.partition { it.key[0].isUpperCase() }
+    for ((valname, dep) in entriesForDeps)
+        appendDep(indent, valname, dep as Dep)
+    for ((objectName, content) in entriesForGroups) {
+        appendLine("object $objectName {".withIndent(indent))
+        appendDepTree(indent + 4, content as DepTree)
+        appendLine("}".withIndent(indent))
+    }
+}
+
+private fun String.withIndent(indent: Int = 4) = " ".repeat(indent) + this
 
 private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
     if (isEmpty()) return this.toString()
