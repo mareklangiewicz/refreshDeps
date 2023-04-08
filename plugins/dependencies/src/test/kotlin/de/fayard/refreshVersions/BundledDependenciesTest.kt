@@ -296,8 +296,8 @@ class BundledDependenciesTest {
 
 
 
-    // ./gradlew :refreshVersions:cleanTest (if needed - especially after "successful" run)
-    // ./gradlew --info :refreshVersions:test --tests BundledDependenciesTest.generateDeps (takes around 11min)
+    // refreshDeps/plugins$ ./gradlew :refreshVersions:cleanTest (if needed - especially after "successful" or "disabled" run)
+    // refreshDeps/plugins$ GENERATE_DEPS=true ./gradlew --info :refreshVersions:test --tests BundledDependenciesTest.generateDeps (takes around 13min)
     @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
     @Test
     fun generateDeps() {
