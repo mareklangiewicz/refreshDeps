@@ -23,7 +23,7 @@ jobs:
       name: MyExperiments.generateDeps
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: :refreshVersions:test --tests MyExperiments.generateDeps
+        arguments: --info :refreshVersions:test --tests MyExperiments.generateDeps
         build-root-directory: plugins
       env:
         GENERATE_DEPS: true
