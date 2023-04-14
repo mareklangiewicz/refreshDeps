@@ -32,3 +32,11 @@ jobs:
       uses: EndBug/add-and-commit@v9
       with:
         add: plugins/dependencies/src/test/resources/objects-for-deps.txt
+        new_branch: objects-for-deps
+    - id: step-4
+      name: Pull Request
+      uses: repo-sync/pull-request@v2
+      with:
+        source_branch: objects-for-deps
+        destination_branch: main
+        github_token: ${{ secrets.GITHUB_TOKEN }}
