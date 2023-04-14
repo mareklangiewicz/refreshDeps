@@ -7,10 +7,11 @@ on:
   schedule:
   - cron: 0 7 * * 1
   workflow_dispatch: {}
-permissions: write-all
 jobs:
   generate-deps:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
     - id: step-0
       uses: actions/checkout@v3
