@@ -160,7 +160,7 @@ private fun String.withIndent(indent: Int = 4) = " ".repeat(indent) + this
 
 private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
     if (isEmpty()) return this.toString()
-    val myWords = listOf("app", "layout", "content", "cursor", "adapter", "marek", "langiewicz", "text",
+    val myWords = listOf("app", "layout", "content", "cursor", "adapter", "marek", "langiewicz", "text", "socket",
         "provider", "touch", "graph", "team", "android", "browser", "auto", "fill", "canary", "mockito", "jet", "brains",
         "kotlin", "spring", "framework", "assert", "java", "store", "data", "document", "file", "dynamic", "animation",
         "local", "global", "broadcast", "manager", "media", "router", "view", "share", "target", "wrappers",
