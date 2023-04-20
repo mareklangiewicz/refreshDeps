@@ -18,7 +18,12 @@ class MyExperiments {
     @EnabledIfEnvironmentVariable(named = "GENERATE_DEPS", matches = "true")
     @Test
     fun generateDeps() {
-        val modules: List<ModuleId.Maven> = getArtifactNameToConstantMapping().map { it.moduleId } + getLangaraModules()
+
+        val modules: List<ModuleId.Maven> = emptyList<ModuleId.Maven>() +
+            getArtifactNameToConstantMapping().map { it.moduleId } +
+            getAdditionalModules() +
+            getLangaraModules()
+
         val input = getVersionCandidates(modules)
 
         val outputmap = mutableMapOf<String, Any>()
@@ -156,9 +161,9 @@ private fun String.withIndent(indent: Int = 4) = " ".repeat(indent) + this
 private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
     if (isEmpty()) return this.toString()
     val myWords = listOf("app", "layout", "content", "cursor", "adapter", "marek", "langiewicz", "text",
-        "provider", "touch", "graph", "team",
+        "provider", "touch", "graph", "team", "android", "browser", "auto", "fill", "canary", "mockito", "jet", "brains",
         "kotlin", "spring", "framework", "assert", "java", "store", "data", "document", "file", "dynamic", "animation",
-        "local", "global", "broadcast", "manager", "media", "router", "view", "share", "target",
+        "local", "global", "broadcast", "manager", "media", "router", "view", "share", "target", "wrappers",
         "reactive", "jake", "wharton", "rx", "mock", "tuple", "abcd", "ktor", "git", "sqlite", "sql", "square", "unit", "kit")
         .sortedByDescending { it.length } // longer known words should be before shorter prefixes (sqlite before sql, etc.)
     for (myWord in myWords) if (startsWith(myWord, ignoreCase = true))
@@ -168,6 +173,36 @@ private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
 
 private fun Char.upIf(up: Boolean) = if (up) toUpperCase() else this
 
+private fun getAdditionalModules(): List<ModuleId.Maven> = (
+    emptyList<Pair<String, String>>() +
+        listOf(
+            "androidx.percentlayout" to "percentlayout",
+            "org.mockito.kotlin" to "mockito-kotlin",
+            "com.google.truth" to "truth",
+            "com.google.truth" to "truth-parent",
+            "io.realm" to "realm-gradle-plugin",
+        ).map { it.first to it.second } +
+        listOf(
+            "core", "ktor-client", "ktor-server", "transport-ktor", "transport-ktor-websocket",
+            "transport-ktor-websocket-client", "transport-ktor-websocket-server",
+            "transport-ktor-tcp", "transport-nodejs-tcp"
+        ).map { "io.rsocket.kotlin" to "rsocket-$it" } +
+        listOf(
+            "compose" to "compose", "kotlinx" to "atomicfu"
+        ).map { "org.jetbrains." + it.first to it.second + "-gradle-plugin"} +
+        listOf(
+            "wrappers-bom", "actions-toolkit", "browser", "cesium", "css", "csstype", "emotion", "history",
+            "js", "mui", "mui-icons", "node", "popper", "react", "react-beautiful-dnd", "react-core", "react-dom",
+            "react-dom-legacy", "react-dom-test-utils", "react-legacy", "react-redux", "react-router",
+            "react-router-dom", "react-popper", "react-select", "react-use", "redux", "remix-run-router",
+            "ring-ui", "styled", "styled-next", "tanstack-query-core", "tanstack-react-query",
+            "tanstack-react-query-devtools", "tanstack-react-table", "tanstack-react-virtual",
+            "tanstack-table-core", "tanstack-virtual-core", "typescript", "web",
+        ).map { "org.jetbrains.kotlin-wrappers" to "kotlin-$it" } +
+        listOf(
+            "coil", "glide", "picasso", "imageloading-core"
+        ).map { "com.google.accompanist" to "accompanist-$it" }
+    ).map { ModuleId.Maven(it.first, it.second) }
 
 // TODO_later: fetch the list from maven central instead of hardcoding
 private fun getLangaraModules(): List<ModuleId.Maven> = listOf(
