@@ -49,7 +49,7 @@ class MyExperiments {
         }
 
         testResources.resolve("objects-for-deps.txt")
-            .writeText(buildString { appendDepTree(4, outputmap) })
+            .writeText(buildString { appendDepTree(0, outputmap) })
     }
 
     private fun getVersionCandidates(
