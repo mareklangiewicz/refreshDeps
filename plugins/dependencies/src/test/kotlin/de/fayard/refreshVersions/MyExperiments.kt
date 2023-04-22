@@ -163,7 +163,7 @@ private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
     val myWords = listOf("app", "layout", "content", "cursor", "adapter", "marek", "langiewicz", "text", "socket",
         "provider", "touch", "graph", "team", "android", "browser", "auto", "fill", "canary", "mockito", "jet", "brains",
         "kotlin", "spring", "framework", "assert", "java", "store", "data", "document", "file", "dynamic", "animation",
-        "local", "global", "broadcast", "manager", "media", "router", "view", "share", "target", "wrappers",
+        "local", "global", "broadcast", "manager", "media", "router", "view", "share", "target", "wrappers", "type", "safe",
         "reactive", "jake", "wharton", "rx", "mock", "tuple", "abcd", "ktor", "git", "sqlite", "sql", "square", "unit", "kit")
         .sortedByDescending { it.length } // longer known words should be before shorter prefixes (sqlite before sql, etc.)
     for (myWord in myWords) if (startsWith(myWord, ignoreCase = true))
