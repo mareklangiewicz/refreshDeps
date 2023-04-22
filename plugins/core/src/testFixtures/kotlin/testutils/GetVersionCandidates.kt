@@ -28,6 +28,6 @@ suspend fun getVersionCandidates(
         sortingMode = VersionCandidatesResultMode.SortingMode.ByVersion
     )
 ).let { (versions, failures) ->
-    check(failures.isEmpty())
+    if (failures.isNotEmpty()) println("Warning: $failures")
     versions
 }

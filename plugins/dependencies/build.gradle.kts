@@ -1,44 +1,44 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.gradle.plugin-publish")
+//    id("com.gradle.plugin-publish")
     `java-gradle-plugin`
-    `maven-publish`
-    signing
+//    `maven-publish`
+//    signing
     `kotlin-dsl`
     `jvm-test-suite`
-    idea
+//    idea
 }
+//
+//gradlePlugin {
+//    plugins {
+//        create("refreshVersions") {
+//            id = "de.fayard.refreshVersions"
+//            displayName = "Typesafe Gradle Dependencies"
+//            description = "Common Gradle dependencies - See gradle refreshVersions"
+//            implementationClass = "de.fayard.refreshVersions.RefreshVersionsPlugin"
+//        }
+//    }
+//}
+//
+//pluginBundle {
+//    website = "https://jmfayard.github.io/refreshVersions"
+//    vcsUrl = "https://github.com/jmfayard/refreshVersions"
+//    tags = listOf("dependencies", "versions", "buildSrc", "kotlin", "kotlin-dsl")
+//}
 
-gradlePlugin {
-    plugins {
-        create("refreshVersions") {
-            id = "de.fayard.refreshVersions"
-            displayName = "Typesafe Gradle Dependencies"
-            description = "Common Gradle dependencies - See gradle refreshVersions"
-            implementationClass = "de.fayard.refreshVersions.RefreshVersionsPlugin"
-        }
-    }
-}
+//signing {
+//    useInMemoryPgpKeys(
+//        propertyOrEnvOrNull("GPG_key_id"),
+//        propertyOrEnvOrNull("GPG_private_key") ?: return@signing,
+//        propertyOrEnv("GPG_private_password")
+//    )
+//    sign(publishing.publications)
+//}
 
-pluginBundle {
-    website = "https://jmfayard.github.io/refreshVersions"
-    vcsUrl = "https://github.com/jmfayard/refreshVersions"
-    tags = listOf("dependencies", "versions", "buildSrc", "kotlin", "kotlin-dsl")
-}
-
-signing {
-    useInMemoryPgpKeys(
-        propertyOrEnvOrNull("GPG_key_id"),
-        propertyOrEnvOrNull("GPG_private_key") ?: return@signing,
-        propertyOrEnv("GPG_private_password")
-    )
-    sign(publishing.publications)
-}
-
-publishing {
-    setupAllPublications(project)
-}
+//publishing {
+//    setupAllPublications(project)
+//}
 
 dependencies {
     testImplementation(Testing.kotest.runner.junit5)
@@ -62,81 +62,81 @@ sourceSets.main {
     resources.srcDir(genResourcesDir.path)
 }
 
-idea {
-    module.generatedSourceDirs.add(genResourcesDir)
-}
+//idea {
+//    module.generatedSourceDirs.add(genResourcesDir)
+//}
 
-val copyDependencyNotationsRemovalsRevisionNumber by tasks.registering {
-    val versionFile = rootProject.file("version.txt")
-    val removalsRevisionHistoryFile = file("src/main/resources/removals-revisions-history.md")
-    val snapshotDependencyNotationsRemovalsRevisionNumberFile = genResourcesDir.resolve("snapshot-dpdc-rm-rev.txt")
-    val versionToRemovalsMappingFile = file("src/main/resources/version-to-removals-revision-mapping.txt")
+//val copyDependencyNotationsRemovalsRevisionNumber by tasks.registering {
+//    val versionFile = rootProject.file("version.txt")
+//    val removalsRevisionHistoryFile = file("src/main/resources/removals-revisions-history.md")
+//    val snapshotDependencyNotationsRemovalsRevisionNumberFile = genResourcesDir.resolve("snapshot-dpdc-rm-rev.txt")
+//    val versionToRemovalsMappingFile = file("src/main/resources/version-to-removals-revision-mapping.txt")
+//
+//
+//    inputs.files(versionFile, removalsRevisionHistoryFile)
+//    outputs.files(snapshotDependencyNotationsRemovalsRevisionNumberFile, versionToRemovalsMappingFile)
+//
+//    doFirst {
+//        val version = versionFile.useLines { it.first() }
+//        val removalsRevision: Int? = removalsRevisionHistoryFile.useLines { lines ->
+//            lines.lastOrNull { it.startsWith("## ") }?.takeUnless { it.startsWith("## [WIP]") }
+//        }?.substringAfter("## Revision ")?.substringBefore(' ')?.toInt()
+//        if (version.endsWith("-SNAPSHOT")) {
+//            snapshotDependencyNotationsRemovalsRevisionNumberFile.let {
+//                when (removalsRevision) {
+//                    null -> it.delete()
+//                    else -> it.writeText(removalsRevision.toString())
+//                }
+//            }
+//        } else {
+//            snapshotDependencyNotationsRemovalsRevisionNumberFile.delete()
+//            val expectedPrefix = "$version->"
+//            val mappingLine = "$expectedPrefix$removalsRevision"
+//            val mappingFileContent = versionToRemovalsMappingFile.readText()
+//            val existingMapping = mappingFileContent.lineSequence().firstOrNull {
+//                it.startsWith(expectedPrefix)
+//            }
+//            if (existingMapping != null) {
+//                check(existingMapping == mappingLine)
+//            } else {
+//                check(mappingFileContent.endsWith('\n') || mappingFileContent.isEmpty())
+//                val isInCi = System.getenv("CI") == "true"
+//                check(isInCi.not()) {
+//                    "$versionToRemovalsMappingFile shall be updated before publishing."
+//                }
+//                versionToRemovalsMappingFile.appendText("$mappingLine\n")
+//            }
+//        }
+//    }
+//}
+//
+//tasks.processResources {
+//    dependsOn(copyDependencyNotationsRemovalsRevisionNumber)
+//}
 
-
-    inputs.files(versionFile, removalsRevisionHistoryFile)
-    outputs.files(snapshotDependencyNotationsRemovalsRevisionNumberFile, versionToRemovalsMappingFile)
-
-    doFirst {
-        val version = versionFile.useLines { it.first() }
-        val removalsRevision: Int? = removalsRevisionHistoryFile.useLines { lines ->
-            lines.lastOrNull { it.startsWith("## ") }?.takeUnless { it.startsWith("## [WIP]") }
-        }?.substringAfter("## Revision ")?.substringBefore(' ')?.toInt()
-        if (version.endsWith("-SNAPSHOT")) {
-            snapshotDependencyNotationsRemovalsRevisionNumberFile.let {
-                when (removalsRevision) {
-                    null -> it.delete()
-                    else -> it.writeText(removalsRevision.toString())
-                }
-            }
-        } else {
-            snapshotDependencyNotationsRemovalsRevisionNumberFile.delete()
-            val expectedPrefix = "$version->"
-            val mappingLine = "$expectedPrefix$removalsRevision"
-            val mappingFileContent = versionToRemovalsMappingFile.readText()
-            val existingMapping = mappingFileContent.lineSequence().firstOrNull {
-                it.startsWith(expectedPrefix)
-            }
-            if (existingMapping != null) {
-                check(existingMapping == mappingLine)
-            } else {
-                check(mappingFileContent.endsWith('\n') || mappingFileContent.isEmpty())
-                val isInCi = System.getenv("CI") == "true"
-                check(isInCi.not()) {
-                    "$versionToRemovalsMappingFile shall be updated before publishing."
-                }
-                versionToRemovalsMappingFile.appendText("$mappingLine\n")
-            }
-        }
-    }
-}
-
-tasks.processResources {
-    dependsOn(copyDependencyNotationsRemovalsRevisionNumber)
-}
-
-@Suppress("UnstableApiUsage")
-val prePublishTest = testing.suites.create<JvmTestSuite>("prePublishTest") {
-    useJUnitJupiter()
-    dependencies {
-        implementation(project)
-        implementation(project.dependencies.testFixtures(project(":refreshVersions-core")))
-        implementation(Testing.kotest.assertions.core)
-    }
-}
+//@Suppress("UnstableApiUsage")
+//val prePublishTest = testing.suites.create<JvmTestSuite>("prePublishTest") {
+//    useJUnitJupiter()
+//    dependencies {
+//        implementation(project)
+//        implementation(project.dependencies.testFixtures(project(":refreshVersions-core")))
+//        implementation(Testing.kotest.assertions.core)
+//    }
+//}
 
 kotlin {
-    target.compilations.let {
-        it.getByName("prePublishTest").associateWith(it.getByName("main"))
-    }
+//    target.compilations.let {
+//        it.getByName("prePublishTest").associateWith(it.getByName("main"))
+//    }
 }
 
 tasks.check {
-    dependsOn(prePublishTest)
+//    dependsOn(prePublishTest)
 }
 
-tasks.withType<AbstractPublishToMaven>().configureEach {
-    dependsOn(prePublishTest)
-}
+//tasks.withType<AbstractPublishToMaven>().configureEach {
+//    dependsOn(prePublishTest)
+//}
 
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "1.8"

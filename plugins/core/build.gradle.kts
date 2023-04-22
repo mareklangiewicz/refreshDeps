@@ -1,44 +1,44 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("com.gradle.plugin-publish")
+//    id("com.gradle.plugin-publish")
     `java-gradle-plugin`
     `java-test-fixtures`
-    `maven-publish`
-    signing
+//    `maven-publish`
+//    signing
     `kotlin-dsl`
-    idea
+//    idea
 }
 
-gradlePlugin {
-    plugins {
-        create("refreshVersions-core") {
-            id = "de.fayard.refreshVersions-core"
-            displayName = "./gradlew refreshVersions"
-            description = "Painless dependencies management"
-            implementationClass = "de.fayard.refreshVersions.core.RefreshVersionsCorePlugin"
-        }
-    }
-}
-
-pluginBundle {
-    website = "https://jmfayard.github.io/refreshVersions"
-    vcsUrl = "https://github.com/jmfayard/refreshVersions"
-    tags = listOf("dependencies", "versions", "buildSrc", "kotlin", "kotlin-dsl")
-}
-
-signing {
-    useInMemoryPgpKeys(
-        propertyOrEnvOrNull("GPG_key_id"),
-        propertyOrEnvOrNull("GPG_private_key") ?: return@signing,
-        propertyOrEnv("GPG_private_password")
-    )
-    sign(publishing.publications)
-}
-
-publishing {
-    setupAllPublications(project)
-}
+//gradlePlugin {
+//    plugins {
+//        create("refreshVersions-core") {
+//            id = "de.fayard.refreshVersions-core"
+//            displayName = "./gradlew refreshVersions"
+//            description = "Painless dependencies management"
+//            implementationClass = "de.fayard.refreshVersions.core.RefreshVersionsCorePlugin"
+//        }
+//    }
+//}
+//
+//pluginBundle {
+//    website = "https://jmfayard.github.io/refreshVersions"
+//    vcsUrl = "https://github.com/jmfayard/refreshVersions"
+//    tags = listOf("dependencies", "versions", "buildSrc", "kotlin", "kotlin-dsl")
+//}
+//
+//signing {
+//    useInMemoryPgpKeys(
+//        propertyOrEnvOrNull("GPG_key_id"),
+//        propertyOrEnvOrNull("GPG_private_key") ?: return@signing,
+//        propertyOrEnv("GPG_private_password")
+//    )
+//    sign(publishing.publications)
+//}
+//
+//publishing {
+//    setupAllPublications(project)
+//}
 
 dependencies {
     compileOnly(gradleKotlinDsl())
@@ -80,21 +80,21 @@ val genResourcesDir = buildDir.resolve("generated/refreshVersions/resources")
 sourceSets.main {
     resources.srcDir(genResourcesDir.path)
 }
+//
+//idea {
+//    module.generatedSourceDirs.add(genResourcesDir)
+//}
 
-idea {
-    module.generatedSourceDirs.add(genResourcesDir)
-}
-
-val copyVersionFile by tasks.registering {
-    val versionFile = rootProject.file("version.txt")
-    val versionFileCopy = genResourcesDir.resolve("version.txt")
-    inputs.file(versionFile)
-    outputs.file(versionFileCopy)
-    doFirst { versionFile.copyTo(versionFileCopy, overwrite = true) }
-}
-tasks.processResources {
-    dependsOn(copyVersionFile)
-}
+//val copyVersionFile by tasks.registering {
+//    val versionFile = rootProject.file("version.txt")
+//    val versionFileCopy = genResourcesDir.resolve("version.txt")
+//    inputs.file(versionFile)
+//    outputs.file(versionFileCopy)
+//    doFirst { versionFile.copyTo(versionFileCopy, overwrite = true) }
+//}
+//tasks.processResources {
+//    dependsOn(copyVersionFile)
+//}
 
 tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions.jvmTarget = "1.8"

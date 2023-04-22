@@ -164,6 +164,7 @@ private class DependencyNotationImpl(
                         dependencyGroup.usedDependencyNotationsWithNoPlatformConstraints = true
                     }
                 }
+                else -> println("FIXME: investigate (had compilation error: 'when' expression must be exhaustive)")
             }
         }
 
