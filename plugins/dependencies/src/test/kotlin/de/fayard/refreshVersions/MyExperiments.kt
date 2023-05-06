@@ -216,5 +216,5 @@ private fun getLangaraModules(): List<ModuleId.Maven> = listOf(
     "upue", "upue-js", "upue-jvm", "upue-linuxx64", "upue-test", "upue-test-js", "upue-test-jvm",
     "uspek", "uspek-js", "uspek-jvm", "uspek-linuxx64", "uspekx",
     "uspekx-js", "uspekx-junit4", "uspekx-junit4-jvm", "uspekx-junit5", "uspekx-junit5-jvm", "uspekx-jvm", "uspekx-linuxx64",
-    "uwidgets", "uwidgets-js", "uwidgets-jvm",
+    "uwidgets", "uwidgets-js", "uwidgets-jvm", "uwidgets-udemo", "uwidgets-udemo-js", "uwidgets-udemo-jvm",
 ).map { ModuleId.Maven("pl.mareklangiewicz", it) }
