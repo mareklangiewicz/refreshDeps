@@ -209,6 +209,8 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
 private fun getLangaraModules(): List<ModuleId.Maven> = listOf(
     "abcdk", "abcdk-js", "abcdk-jvm", "abcdk-linuxx64",
     "kommandline", "kommandline-js", "kommandline-jvm",
+    "kommandsamples", "kommandsamples-js", "kommandsamples-jvm",
+    "kommandjupyter", "kommandjupyter-jvm",
     "rxmock", "rxmock-jvm", "smokk",
     "smokk-jvm", "smokkx", "smokkx-jvm",
     "template-andro-app", "template-andro-lib", "template-mpp-lib", "template-mpp-lib-js", "template-mpp-lib-jvm",
