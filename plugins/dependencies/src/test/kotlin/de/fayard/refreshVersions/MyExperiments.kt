@@ -206,8 +206,12 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
     ).map { ModuleId.Maven(it.first, it.second) }
 
 // TODO_later: fetch the list from maven central instead of hardcoding
+//  https://repo1.maven.org/maven2/pl/mareklangiewicz/
 private fun getLangaraModules(): List<ModuleId.Maven> = listOf(
     "abcdk", "abcdk-js", "abcdk-jvm", "abcdk-linuxx64",
+    "kground", "kground-io", "kgroundx", "kgroundx-io", "kgroundx-maintenance",
+    "kground-jvm", "kground-io-jvm", "kgroundx-jvm", "kgroundx-io-jvm", "kgroundx-maintenance-jvm",
+    "kground-js", "kground-io-js", "kgroundx-js", "kgroundx-io-js", "kgroundx-maintenance",
     "kommandline", "kommandline-js", "kommandline-jvm",
     "kommandsamples", "kommandsamples-js", "kommandsamples-jvm",
     "kommandjupyter", "kommandjupyter-jvm",
