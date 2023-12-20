@@ -79,7 +79,7 @@ object AndroidX {
             val graphics = Dep("androidx.compose.animation", "animation-graphics", Ver("1.5.4", 0), Ver("1.6.0-beta03", 200))
         }
         object Compiler {
-            val compiler = Dep("androidx.compose.compiler", "compiler", Ver("1.5.6", 0))
+            val compiler = Dep("androidx.compose.compiler", "compiler", Ver("1.5.7", 0))
         }
         object Foundation {
             val foundation = Dep("androidx.compose.foundation", "foundation", Ver("1.5.4", 0), Ver("1.6.0-beta03", 200))
@@ -688,18 +688,18 @@ object Com {
                 val strict_version_matcher_plugin = Dep("com.google.android.gms", "strict-version-matcher-plugin", Ver("1.2.4", 0))
             }
             object Horologist {
-                val audio = Dep("com.google.android.horologist", "horologist-audio", Ver("0.5.14", 0))
-                val audio_ui = Dep("com.google.android.horologist", "horologist-audio-ui", Ver("0.5.14", 0))
-                val composables = Dep("com.google.android.horologist", "horologist-composables", Ver("0.5.14", 0))
-                val compose_layout = Dep("com.google.android.horologist", "horologist-compose-layout", Ver("0.5.14", 0))
-                val compose_tools = Dep("com.google.android.horologist", "horologist-compose-tools", Ver("0.5.14", 0))
-                val datalayer = Dep("com.google.android.horologist", "horologist-datalayer", Ver("0.5.14", 0))
-                val media = Dep("com.google.android.horologist", "horologist-media", Ver("0.5.14", 0))
-                val media3_backend = Dep("com.google.android.horologist", "horologist-media3-backend", Ver("0.5.14", 0))
-                val media_data = Dep("com.google.android.horologist", "horologist-media-data", Ver("0.5.14", 0))
-                val media_ui = Dep("com.google.android.horologist", "horologist-media-ui", Ver("0.5.14", 0))
-                val network_awareness = Dep("com.google.android.horologist", "horologist-network-awareness", Ver("0.5.14", 0))
-                val tiles = Dep("com.google.android.horologist", "horologist-tiles", Ver("0.5.14", 0))
+                val audio = Dep("com.google.android.horologist", "horologist-audio", Ver("0.5.15", 0))
+                val audio_ui = Dep("com.google.android.horologist", "horologist-audio-ui", Ver("0.5.15", 0))
+                val composables = Dep("com.google.android.horologist", "horologist-composables", Ver("0.5.15", 0))
+                val compose_layout = Dep("com.google.android.horologist", "horologist-compose-layout", Ver("0.5.15", 0))
+                val compose_tools = Dep("com.google.android.horologist", "horologist-compose-tools", Ver("0.5.15", 0))
+                val datalayer = Dep("com.google.android.horologist", "horologist-datalayer", Ver("0.5.15", 0))
+                val media = Dep("com.google.android.horologist", "horologist-media", Ver("0.5.15", 0))
+                val media3_backend = Dep("com.google.android.horologist", "horologist-media3-backend", Ver("0.5.15", 0))
+                val media_data = Dep("com.google.android.horologist", "horologist-media-data", Ver("0.5.15", 0))
+                val media_ui = Dep("com.google.android.horologist", "horologist-media-ui", Ver("0.5.15", 0))
+                val network_awareness = Dep("com.google.android.horologist", "horologist-network-awareness", Ver("0.5.15", 0))
+                val tiles = Dep("com.google.android.horologist", "horologist-tiles", Ver("0.5.15", 0))
             }
             object Libraries {
                 object Places {
@@ -741,22 +741,22 @@ object Com {
             }
         }
         object Dagger {
-            val android = Dep("com.google.dagger", "dagger-android", Ver("2.49", 0))
-            val android_processor = Dep("com.google.dagger", "dagger-android-processor", Ver("2.49", 0))
-            val android_support = Dep("com.google.dagger", "dagger-android-support", Ver("2.49", 0))
-            val compiler = Dep("com.google.dagger", "dagger-compiler", Ver("2.49", 0))
-            val dagger = Dep("com.google.dagger", "dagger", Ver("2.49", 0))
-            val grpc_server = Dep("com.google.dagger", "dagger-grpc-server", Ver("2.49", 0))
-            val grpc_server_annotations = Dep("com.google.dagger", "dagger-grpc-server-annotations", Ver("2.49", 0))
-            val grpc_server_processor = Dep("com.google.dagger", "dagger-grpc-server-processor", Ver("2.49", 0))
-            val gwt = Dep("com.google.dagger", "dagger-gwt", Ver("2.49", 0))
-            val hilt_android = Dep("com.google.dagger", "hilt-android", Ver("2.49", 0))
-            val hilt_android_compiler = Dep("com.google.dagger", "hilt-android-compiler", Ver("2.49", 0))
-            val hilt_android_gradle_plugin = Dep("com.google.dagger", "hilt-android-gradle-plugin", Ver("2.49", 0))
-            val hilt_android_testing = Dep("com.google.dagger", "hilt-android-testing", Ver("2.49", 0))
-            val hilt_compiler = Dep("com.google.dagger", "hilt-compiler", Ver("2.49", 0))
-            val producers = Dep("com.google.dagger", "dagger-producers", Ver("2.49", 0))
-            val spi = Dep("com.google.dagger", "dagger-spi", Ver("2.49", 0))
+            val android = Dep("com.google.dagger", "dagger-android", Ver("2.50", 0))
+            val android_processor = Dep("com.google.dagger", "dagger-android-processor", Ver("2.50", 0))
+            val android_support = Dep("com.google.dagger", "dagger-android-support", Ver("2.50", 0))
+            val compiler = Dep("com.google.dagger", "dagger-compiler", Ver("2.50", 0))
+            val dagger = Dep("com.google.dagger", "dagger", Ver("2.50", 0))
+            val grpc_server = Dep("com.google.dagger", "dagger-grpc-server", Ver("2.50", 0))
+            val grpc_server_annotations = Dep("com.google.dagger", "dagger-grpc-server-annotations", Ver("2.50", 0))
+            val grpc_server_processor = Dep("com.google.dagger", "dagger-grpc-server-processor", Ver("2.50", 0))
+            val gwt = Dep("com.google.dagger", "dagger-gwt", Ver("2.50", 0))
+            val hilt_android = Dep("com.google.dagger", "hilt-android", Ver("2.50", 0))
+            val hilt_android_compiler = Dep("com.google.dagger", "hilt-android-compiler", Ver("2.50", 0))
+            val hilt_android_gradle_plugin = Dep("com.google.dagger", "hilt-android-gradle-plugin", Ver("2.50", 0))
+            val hilt_android_testing = Dep("com.google.dagger", "hilt-android-testing", Ver("2.50", 0))
+            val hilt_compiler = Dep("com.google.dagger", "hilt-compiler", Ver("2.50", 0))
+            val producers = Dep("com.google.dagger", "dagger-producers", Ver("2.50", 0))
+            val spi = Dep("com.google.dagger", "dagger-spi", Ver("2.50", 0))
         }
         object Firebase {
             val analytics = Dep("com.google.firebase", "firebase-analytics", Ver("21.5.0", 0))
@@ -841,8 +841,8 @@ object Com {
             val oboe = Dep("com.google.oboe", "oboe", Ver("1.8.0", 0))
         }
         object Truth {
-            val parent = Dep("com.google.truth", "truth-parent", Ver("1.1.5", 0))
-            val truth = Dep("com.google.truth", "truth", Ver("1.1.5", 0))
+            val parent = Dep("com.google.truth", "truth-parent", Ver("1.2.0", 0))
+            val truth = Dep("com.google.truth", "truth", Ver("1.2.0", 0))
         }
     }
     object JakeWharton {
@@ -1133,17 +1133,17 @@ object Io {
         }
     }
     object Insert_koin {
-        val koin_android = Dep("io.insert-koin", "koin-android", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_android_compat = Dep("io.insert-koin", "koin-android-compat", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_androidx_compose = Dep("io.insert-koin", "koin-androidx-compose", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_androidx_navigation = Dep("io.insert-koin", "koin-androidx-navigation", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_androidx_workmanager = Dep("io.insert-koin", "koin-androidx-workmanager", Ver("3.5.0", 0), Ver("3.5.2-RC1", 100))
-        val koin_core = Dep("io.insert-koin", "koin-core", Ver("3.5.2", 0))
-        val koin_ktor = Dep("io.insert-koin", "koin-ktor", Ver("3.5.1", 0), Ver("3.5.2-RC1", 100))
-        val koin_logger_slf4j = Dep("io.insert-koin", "koin-logger-slf4j", Ver("3.5.1", 0), Ver("3.5.2-RC1", 100))
-        val koin_test = Dep("io.insert-koin", "koin-test", Ver("3.5.2", 0))
-        val koin_test_junit4 = Dep("io.insert-koin", "koin-test-junit4", Ver("3.5.2", 0))
-        val koin_test_junit5 = Dep("io.insert-koin", "koin-test-junit5", Ver("3.5.2", 0))
+        val koin_android = Dep("io.insert-koin", "koin-android", Ver("3.5.3", 0))
+        val koin_android_compat = Dep("io.insert-koin", "koin-android-compat", Ver("3.5.3", 0))
+        val koin_androidx_compose = Dep("io.insert-koin", "koin-androidx-compose", Ver("3.5.3", 0))
+        val koin_androidx_navigation = Dep("io.insert-koin", "koin-androidx-navigation", Ver("3.5.3", 0))
+        val koin_androidx_workmanager = Dep("io.insert-koin", "koin-androidx-workmanager", Ver("3.5.3", 0))
+        val koin_core = Dep("io.insert-koin", "koin-core", Ver("3.5.3", 0))
+        val koin_ktor = Dep("io.insert-koin", "koin-ktor", Ver("3.5.3", 0))
+        val koin_logger_slf4j = Dep("io.insert-koin", "koin-logger-slf4j", Ver("3.5.3", 0))
+        val koin_test = Dep("io.insert-koin", "koin-test", Ver("3.5.3", 0))
+        val koin_test_junit4 = Dep("io.insert-koin", "koin-test-junit4", Ver("3.5.3", 0))
+        val koin_test_junit5 = Dep("io.insert-koin", "koin-test-junit5", Ver("3.5.3", 0))
     }
     object Kotest {
         val assertions_arrow = Dep("io.kotest", "kotest-assertions-arrow", Ver("4.4.3", 0))
@@ -1627,7 +1627,7 @@ object Org {
         }
         object Cloud {
             val spring_cloud_bus = Dep("org.springframework.cloud", "spring-cloud-bus", Ver("4.1.0", 0))
-            val spring_cloud_cloudfoundry_discovery = Dep("org.springframework.cloud", "spring-cloud-cloudfoundry-discovery", Ver("3.1.3", 0), Ver("3.1.4", 0))
+            val spring_cloud_cloudfoundry_discovery = Dep("org.springframework.cloud", "spring-cloud-cloudfoundry-discovery", Ver("3.1.4", 0))
             val spring_cloud_config_server = Dep("org.springframework.cloud", "spring-cloud-config-server", Ver("4.1.0", 0))
             val spring_cloud_dependencies = Dep("org.springframework.cloud", "spring-cloud-dependencies", Ver("2023.0.0", 0))
             val spring_cloud_function_web = Dep("org.springframework.cloud", "spring-cloud-function-web", Ver("4.1.0", 0))
@@ -1677,23 +1677,23 @@ object Org {
             val spring_geode_starter = Dep("org.springframework.geode", "spring-geode-starter", Ver("1.7.5", 0))
         }
         object Integration {
-            val spring_integration_amqp = Dep("org.springframework.integration", "spring-integration-amqp", Ver("6.2.0", 0))
+            val spring_integration_amqp = Dep("org.springframework.integration", "spring-integration-amqp", Ver("6.2.1", 0))
             val spring_integration_gemfire = Dep("org.springframework.integration", "spring-integration-gemfire", Ver("5.5.20", 0))
-            val spring_integration_jdbc = Dep("org.springframework.integration", "spring-integration-jdbc", Ver("6.2.0", 0))
-            val spring_integration_jms = Dep("org.springframework.integration", "spring-integration-jms", Ver("6.2.0", 0))
-            val spring_integration_jpa = Dep("org.springframework.integration", "spring-integration-jpa", Ver("6.2.0", 0))
-            val spring_integration_kafka = Dep("org.springframework.integration", "spring-integration-kafka", Ver("6.2.0", 0))
-            val spring_integration_mail = Dep("org.springframework.integration", "spring-integration-mail", Ver("6.2.0", 0))
-            val spring_integration_mongodb = Dep("org.springframework.integration", "spring-integration-mongodb", Ver("6.2.0", 0))
-            val spring_integration_r2dbc = Dep("org.springframework.integration", "spring-integration-r2dbc", Ver("6.2.0", 0))
-            val spring_integration_redis = Dep("org.springframework.integration", "spring-integration-redis", Ver("6.2.0", 0))
-            val spring_integration_rsocket = Dep("org.springframework.integration", "spring-integration-rsocket", Ver("6.2.0", 0))
-            val spring_integration_security = Dep("org.springframework.integration", "spring-integration-security", Ver("6.2.0", 0))
-            val spring_integration_stomp = Dep("org.springframework.integration", "spring-integration-stomp", Ver("6.2.0", 0))
-            val spring_integration_test = Dep("org.springframework.integration", "spring-integration-test", Ver("6.2.0", 0))
-            val spring_integration_webflux = Dep("org.springframework.integration", "spring-integration-webflux", Ver("6.2.0", 0))
-            val spring_integration_websocket = Dep("org.springframework.integration", "spring-integration-websocket", Ver("6.2.0", 0))
-            val spring_integration_ws = Dep("org.springframework.integration", "spring-integration-ws", Ver("6.2.0", 0))
+            val spring_integration_jdbc = Dep("org.springframework.integration", "spring-integration-jdbc", Ver("6.2.1", 0))
+            val spring_integration_jms = Dep("org.springframework.integration", "spring-integration-jms", Ver("6.2.1", 0))
+            val spring_integration_jpa = Dep("org.springframework.integration", "spring-integration-jpa", Ver("6.2.1", 0))
+            val spring_integration_kafka = Dep("org.springframework.integration", "spring-integration-kafka", Ver("6.2.1", 0))
+            val spring_integration_mail = Dep("org.springframework.integration", "spring-integration-mail", Ver("6.2.1", 0))
+            val spring_integration_mongodb = Dep("org.springframework.integration", "spring-integration-mongodb", Ver("6.2.1", 0))
+            val spring_integration_r2dbc = Dep("org.springframework.integration", "spring-integration-r2dbc", Ver("6.2.1", 0))
+            val spring_integration_redis = Dep("org.springframework.integration", "spring-integration-redis", Ver("6.2.1", 0))
+            val spring_integration_rsocket = Dep("org.springframework.integration", "spring-integration-rsocket", Ver("6.2.1", 0))
+            val spring_integration_security = Dep("org.springframework.integration", "spring-integration-security", Ver("6.2.1", 0))
+            val spring_integration_stomp = Dep("org.springframework.integration", "spring-integration-stomp", Ver("6.2.1", 0))
+            val spring_integration_test = Dep("org.springframework.integration", "spring-integration-test", Ver("6.2.1", 0))
+            val spring_integration_webflux = Dep("org.springframework.integration", "spring-integration-webflux", Ver("6.2.1", 0))
+            val spring_integration_websocket = Dep("org.springframework.integration", "spring-integration-websocket", Ver("6.2.1", 0))
+            val spring_integration_ws = Dep("org.springframework.integration", "spring-integration-ws", Ver("6.2.1", 0))
         }
         object Kafka {
             val spring_kafka = Dep("org.springframework.kafka", "spring-kafka", Ver("3.1.1", 0))
@@ -1708,8 +1708,8 @@ object Org {
             val spring_security_test = Dep("org.springframework.security", "spring-security-test", Ver("6.2.1", 0))
         }
         object Session {
-            val spring_session_data_redis = Dep("org.springframework.session", "spring-session-data-redis", Ver("3.2.0", 0))
-            val spring_session_jdbc = Dep("org.springframework.session", "spring-session-jdbc", Ver("3.2.0", 0))
+            val spring_session_data_redis = Dep("org.springframework.session", "spring-session-data-redis", Ver("3.2.1", 0))
+            val spring_session_jdbc = Dep("org.springframework.session", "spring-session-jdbc", Ver("3.2.1", 0))
         }
     }
 }
