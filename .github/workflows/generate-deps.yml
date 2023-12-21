@@ -27,7 +27,7 @@ jobs:
       with:
         arguments: --info :refreshVersions:test --tests MyExperiments.generateDeps
         build-root-directory: plugins
-        cache-write-only: true
+        gradle-version: 8.5
       env:
         GENERATE_DEPS: true
     - id: step-3
