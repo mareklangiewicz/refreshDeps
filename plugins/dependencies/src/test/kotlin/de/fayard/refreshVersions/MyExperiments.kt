@@ -57,8 +57,13 @@ class MyExperiments {
         reposUrls: List<String> = listOf(
             "https://repo.maven.apache.org/maven2/",
             "https://dl.google.com/dl/android/maven2/",
-            "https://plugins.gradle.org/m2/"
+            "https://plugins.gradle.org/m2/",
 
+            "https://androidx.dev/storage/compose-compiler/repository/",
+            // FIXME: very wasteful, I should use it only for jetpack (androidx) compose compiler
+
+            "https://maven.pkg.jetbrains.space/public/p/compose/dev/",
+            // FIXME: very wasteful, I should use it only for compose mpp stuff (jb compose compiler too)
         )
     ): Map<ModuleId.Maven, List<Version>> = runBlocking {
         modules.associateWith { moduleId ->
@@ -175,6 +180,8 @@ private fun Char.upIf(up: Boolean) = if (up) toUpperCase() else this
 
 private fun getAdditionalModules(): List<ModuleId.Maven> = (
     emptyList<Pair<String, String>>() +
+        listOf("org.jetbrains.compose.compiler" to "compiler") +
+        listOf("androidx.compose.compiler" to "compiler") +
         listOf(
             "androidx.percentlayout" to "percentlayout",
             "org.mockito.kotlin" to "mockito-kotlin",
