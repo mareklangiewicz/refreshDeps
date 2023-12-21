@@ -14,12 +14,12 @@ jobs:
       contents: write
     steps:
     - id: step-0
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - id: step-1
       name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: 17
+        java-version: 21
         distribution: zulu
     - id: step-2
       name: MyExperiments.generateDeps
@@ -27,6 +27,7 @@ jobs:
       with:
         arguments: --info :refreshVersions:test --tests MyExperiments.generateDeps
         build-root-directory: plugins
+        cache-write-only: true
       env:
         GENERATE_DEPS: true
     - id: step-3
