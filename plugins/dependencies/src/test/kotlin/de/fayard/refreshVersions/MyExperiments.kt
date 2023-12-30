@@ -189,6 +189,7 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
             "com.google.truth" to "truth-parent",
             "io.realm" to "realm-gradle-plugin",
             "io.github.typesafegithub" to "github-workflows-kt",
+            "com.github.ajalt.mordant" to "mordant",
         ).map { it.first to it.second } +
         listOf(
             "core", "ktor-client", "ktor-server", "transport-ktor", "transport-ktor-websocket",
