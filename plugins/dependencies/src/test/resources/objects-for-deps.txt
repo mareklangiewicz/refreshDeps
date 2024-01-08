@@ -580,7 +580,7 @@ object Com {
         }
         object Tools {
             val desugar_jdk_libs = Dep("com.android.tools", "desugar_jdk_libs", Ver("2.0.4", 0))
-            val r8 = Dep("com.android.tools", "r8", Ver("8.2.33", 0))
+            val r8 = Dep("com.android.tools", "r8", Ver("8.2.42", 0))
             object Build {
                 val gradle = Dep("com.android.tools.build", "gradle", Ver("2.3.0", 0), Ver("2.3.3", 0), Ver("2.4.0-alpha7", 300), Ver("2.5.0-alpha-preview-02", 400), Ver("8.2.1", 0), Ver("8.3.0-beta01", 200), Ver("8.4.0-alpha03", 300))
             }
@@ -1275,7 +1275,7 @@ object Io {
     object MockK {
         val android = Dep("io.mockk", "mockk-android", Ver("1.13.9", 0))
         val common = Dep("io.mockk", "mockk-common", Ver("1.12.5", 0))
-        val mockk = Dep("io.mockk", "mockk", Ver("1.13.8", 0), Ver("1.13.9", 0))
+        val mockk = Dep("io.mockk", "mockk", Ver("1.13.9", 0))
     }
     object Pivotal {
         object Spring {
