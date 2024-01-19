@@ -219,7 +219,7 @@ private fun getLangaraModules(): List<ModuleId.Maven> = listOf(
     "abcdk", "abcdk-js", "abcdk-jvm", "abcdk-linuxx64",
     "kground", "kground-io", "kgroundx", "kgroundx-io", "kgroundx-maintenance",
     "kground-jvm", "kground-io-jvm", "kgroundx-jvm", "kgroundx-io-jvm", "kgroundx-maintenance-jvm",
-    "kground-js", "kground-io-js", "kgroundx-js", "kgroundx-io-js", "kgroundx-maintenance",
+    "kground-js", "kground-io-js", "kgroundx-js", "kgroundx-io-js", "kgroundx-maintenance-js",
     "kgroundx-jupyter", "kgroundx-jupyter-jvm",
     "kommandline", "kommandline-js", "kommandline-jvm",
     "kommandsamples", "kommandsamples-js", "kommandsamples-jvm",
