@@ -55,13 +55,50 @@ private fun List<DependencyVersionsFetcher.Result.Success>.byRepoSorting(
 }
 
 private fun List<Version>.filterLatestByStabilityLevel(): List<Version> {
-    return sortedDescending().fold<Version, List<Version>>(emptyList()) { acc, versionCandidate ->
+    return sortedDescendingWorkaround().fold<Version, List<Version>>(emptyList()) { acc, versionCandidate ->
         val previousStabilityLevel = acc.lastOrNull()?.stabilityLevel
             ?: return@fold acc + versionCandidate
         if (versionCandidate.stabilityLevel isMoreStableThan previousStabilityLevel) {
             acc + versionCandidate
         } else acc
     }.asReversed()
+}
+
+/*
+Looks like there is a bug in Version class comparison algorithm.
+I don't have time to analyze it now, it's a lot of code.
+So let's do some hacky workaround.
+
+> Task :refreshVersions:test FAILED
+
+MyExperiments > generateDeps() FAILED
+    java.lang.IllegalArgumentException: Comparison method violates its general contract!
+        at java.base/java.util.TimSort.mergeHi(TimSort.java:903)
+        at java.base/java.util.TimSort.mergeAt(TimSort.java:520)
+        at java.base/java.util.TimSort.mergeCollapse(TimSort.java:448)
+        at java.base/java.util.TimSort.sort(TimSort.java:245)
+        at java.base/java.util.Arrays.sort(Arrays.java:1234)
+        at kotlin.collections.ArraysKt___ArraysJvmKt.sortWith(_ArraysJvm.kt:2179)
+        at kotlin.collections.CollectionsKt___CollectionsKt.sortedWith(_Collections.kt:1075)
+        at kotlin.collections.CollectionsKt___CollectionsKt.sortedDescending(_Collections.kt:1063)
+        at de.fayard.refreshVersions.core.internal.GettingVersionCandidatesKt.filterLatestByStabilityLevel(GettingVersionCandidates.kt:59)
+        at de.fayard.refreshVersions.core.internal.GettingVersionCandidatesKt.sortWith(GettingVersionCandidates.kt:37)
+        at de.fayard.refreshVersions.core.internal.GettingVersionCandidatesKt.getVersionCandidates(GettingVersionCandidates.kt:16)
+        at de.fayard.refreshVersions.core.internal.GettingVersionCandidatesKt$getVersionCandidates$1.invokeSuspend(GettingVersionCandidates.kt)
+        ...
+ */
+private fun List<Version>.sortedDescendingWorkaround(): List<Version> {
+    return try {
+        sortedDescending()
+    }
+    catch (e: IllegalArgumentException) {
+        if (e.message == "Comparison method violates its general contract!") {
+            println("Warning: Caught: $e")
+            println("Warning: Problem with Version.compareTo algorithm!")
+            println("Warning: Using workaround: simple alphanumerical sort on Version.value.")
+            sortedByDescending { it.value }
+        } else throw e
+    }
 }
 
 private suspend fun List<DependencyVersionsFetcher>.getVersionCandidates(
