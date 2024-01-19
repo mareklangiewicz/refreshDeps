@@ -1,3 +1,5 @@
+@file:Suppress("SpellCheckingInspection")
+
 package de.fayard.refreshVersions
 
 import de.fayard.refreshVersions.core.ModuleId
