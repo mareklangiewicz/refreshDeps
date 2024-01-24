@@ -1337,9 +1337,9 @@ object JUnit {
 }
 object Org {
     object AssertJ {
-        val core = Dep("org.assertj", "assertj-core", Ver("3.25.1", 0))
+        val core = Dep("org.assertj", "assertj-core", Ver("3.25.1", 0), Ver("3.25.2", 0))
         val db = Dep("org.assertj", "assertj-db", Ver("2.0.2", 0))
-        val guava = Dep("org.assertj", "assertj-guava", Ver("3.25.1", 0))
+        val guava = Dep("org.assertj", "assertj-guava", Ver("3.25.1", 0), Ver("3.25.2", 0))
         val joda_time = Dep("org.assertj", "assertj-joda-time", Ver("2.2.0", 0))
         val swing = Dep("org.assertj", "assertj-swing", Ver("3.17.1", 0))
     }
@@ -1650,8 +1650,8 @@ object Org {
             val spring_cloud_starter_config = Dep("org.springframework.cloud", "spring-cloud-starter-config", Ver("4.1.0", 0))
             val spring_cloud_starter_consul_config = Dep("org.springframework.cloud", "spring-cloud-starter-consul-config", Ver("4.1.0", 0))
             val spring_cloud_starter_consul_discovery = Dep("org.springframework.cloud", "spring-cloud-starter-consul-discovery", Ver("4.1.0", 0))
-            val spring_cloud_starter_contract_stub_runner = Dep("org.springframework.cloud", "spring-cloud-starter-contract-stub-runner", Ver("4.1.0", 0))
-            val spring_cloud_starter_contract_verifier = Dep("org.springframework.cloud", "spring-cloud-starter-contract-verifier", Ver("4.1.0", 0))
+            val spring_cloud_starter_contract_stub_runner = Dep("org.springframework.cloud", "spring-cloud-starter-contract-stub-runner", Ver("4.1.1", 0))
+            val spring_cloud_starter_contract_verifier = Dep("org.springframework.cloud", "spring-cloud-starter-contract-verifier", Ver("4.1.0", 0), Ver("4.1.1", 0))
             val spring_cloud_starter_gateway = Dep("org.springframework.cloud", "spring-cloud-starter-gateway", Ver("4.1.1", 0))
             val spring_cloud_starter_loadbalancer = Dep("org.springframework.cloud", "spring-cloud-starter-loadbalancer", Ver("4.1.1", 0))
             val spring_cloud_starter_netflix_eureka_client = Dep("org.springframework.cloud", "spring-cloud-starter-netflix-eureka-client", Ver("4.1.0", 0))
