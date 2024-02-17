@@ -23,10 +23,11 @@ jobs:
         distribution: 'zulu'
     - id: 'step-2'
       name: 'MyExperiments.generateDeps'
-      uses: 'gradle/gradle-build-action@v2'
+      uses: 'gradle/gradle-build-action@v3'
       with:
-        build-root-directory: 'plugins'
+        gradle-version: '8.6'
         arguments: '--info :refreshVersions:test --tests MyExperiments.generateDeps'
+        build-root-directory: 'plugins'
       env:
         GENERATE_DEPS: 'true'
     - id: 'step-3'
