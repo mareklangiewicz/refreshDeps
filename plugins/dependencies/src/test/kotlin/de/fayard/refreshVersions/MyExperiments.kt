@@ -182,6 +182,7 @@ private fun Char.upIf(up: Boolean) = if (up) toUpperCase() else this
 
 private fun getAdditionalModules(): List<ModuleId.Maven> = (
     emptyList<Pair<String, String>>() +
+        listOf("org.jetbrains.kotlin" to "kotlin-reflect") +
         listOf("org.jetbrains.compose.compiler" to "compiler") +
         listOf("androidx.compose.compiler" to "compiler") +
         listOf(
