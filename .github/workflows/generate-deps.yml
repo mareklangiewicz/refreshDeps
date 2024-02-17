@@ -2,36 +2,35 @@
 # If you want to modify the workflow, please change the Kotlin source and regenerate this YAML file.
 # Generated with https://github.com/typesafegithub/github-workflows-kt
 
-name: Generate Deps
+name: 'Generate Deps'
 on:
   schedule:
-  - cron: 0 7 * * 1
+  - cron: '0 7 * * 1'
   workflow_dispatch: {}
 jobs:
   generate-deps:
-    runs-on: ubuntu-latest
+    runs-on: 'ubuntu-latest'
     permissions:
-      contents: write
+      contents: 'write'
     steps:
-    - id: step-0
-      uses: actions/checkout@v4
-    - id: step-1
-      name: Set up JDK
-      uses: actions/setup-java@v3
+    - id: 'step-0'
+      uses: 'actions/checkout@v4'
+    - id: 'step-1'
+      name: 'Set up JDK'
+      uses: 'actions/setup-java@v4'
       with:
-        java-version: 21
-        distribution: zulu
-    - id: step-2
-      name: MyExperiments.generateDeps
-      uses: gradle/gradle-build-action@v2
+        java-version: '21'
+        distribution: 'zulu'
+    - id: 'step-2'
+      name: 'MyExperiments.generateDeps'
+      uses: 'gradle/gradle-build-action@v2'
       with:
-        arguments: --info :refreshVersions:test --tests MyExperiments.generateDeps
-        build-root-directory: plugins
-        gradle-version: 8.5
+        build-root-directory: 'plugins'
+        arguments: '--info :refreshVersions:test --tests MyExperiments.generateDeps'
       env:
-        GENERATE_DEPS: true
-    - id: step-3
-      name: Commit
-      uses: EndBug/add-and-commit@v9
+        GENERATE_DEPS: 'true'
+    - id: 'step-3'
+      name: 'Commit'
+      uses: 'EndBug/add-and-commit@v9'
       with:
-        add: plugins/dependencies/src/test/resources/objects-for-deps.txt
+        add: 'plugins/dependencies/src/test/resources/objects-for-deps.txt'
