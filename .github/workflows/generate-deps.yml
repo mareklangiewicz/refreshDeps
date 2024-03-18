@@ -31,7 +31,8 @@ jobs:
       env:
         GENERATE_DEPS: 'true'
     - id: 'step-3'
-      name: 'Commit'
+      name: 'Add and commit file'
       uses: 'EndBug/add-and-commit@v9'
       with:
         add: 'plugins/dependencies/src/test/resources/objects-for-deps.txt'
+        default_author: 'user_info'
