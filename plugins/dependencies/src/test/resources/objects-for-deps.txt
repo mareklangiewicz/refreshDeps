@@ -746,20 +746,20 @@ object Com {
             }
         }
         object Dagger {
-            val android = Dep("com.google.dagger", "dagger-android", Ver("2.51", 0), Ver("2.51.1", 0))
-            val android_processor = Dep("com.google.dagger", "dagger-android-processor", Ver("2.51", 0), Ver("2.51.1", 0))
-            val android_support = Dep("com.google.dagger", "dagger-android-support", Ver("2.51", 0), Ver("2.51.1", 0))
-            val compiler = Dep("com.google.dagger", "dagger-compiler", Ver("2.51", 0), Ver("2.51.1", 0))
-            val dagger = Dep("com.google.dagger", "dagger", Ver("2.51", 0), Ver("2.51.1", 0))
+            val android = Dep("com.google.dagger", "dagger-android", Ver("2.51.1", 0))
+            val android_processor = Dep("com.google.dagger", "dagger-android-processor", Ver("2.51.1", 0))
+            val android_support = Dep("com.google.dagger", "dagger-android-support", Ver("2.51.1", 0))
+            val compiler = Dep("com.google.dagger", "dagger-compiler", Ver("2.51.1", 0))
+            val dagger = Dep("com.google.dagger", "dagger", Ver("2.51.1", 0))
             val grpc_server = Dep("com.google.dagger", "dagger-grpc-server", Ver("2.51.1", 0))
             val grpc_server_annotations = Dep("com.google.dagger", "dagger-grpc-server-annotations", Ver("2.51.1", 0))
             val grpc_server_processor = Dep("com.google.dagger", "dagger-grpc-server-processor", Ver("2.51.1", 0))
             val gwt = Dep("com.google.dagger", "dagger-gwt", Ver("2.51.1", 0))
             val hilt_android = Dep("com.google.dagger", "hilt-android", Ver("2.51.1", 0))
             val hilt_android_compiler = Dep("com.google.dagger", "hilt-android-compiler", Ver("2.51.1", 0))
-            val hilt_android_gradle_plugin = Dep("com.google.dagger", "hilt-android-gradle-plugin", Ver("2.51", 0), Ver("2.51.1", 0))
+            val hilt_android_gradle_plugin = Dep("com.google.dagger", "hilt-android-gradle-plugin", Ver("2.51.1", 0))
             val hilt_android_testing = Dep("com.google.dagger", "hilt-android-testing", Ver("2.51.1", 0))
-            val hilt_compiler = Dep("com.google.dagger", "hilt-compiler", Ver("2.51", 0), Ver("2.51.1", 0))
+            val hilt_compiler = Dep("com.google.dagger", "hilt-compiler", Ver("2.51.1", 0))
             val producers = Dep("com.google.dagger", "dagger-producers", Ver("2.51.1", 0))
             val spi = Dep("com.google.dagger", "dagger-spi", Ver("2.51.1", 0))
         }
@@ -1138,17 +1138,17 @@ object Io {
         }
     }
     object Insert_koin {
-        val koin_android = Dep("io.insert-koin", "koin-android", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_android = Dep("io.insert-koin", "koin-android", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
         val koin_android_compat = Dep("io.insert-koin", "koin-android-compat", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
-        val koin_androidx_compose = Dep("io.insert-koin", "koin-androidx-compose", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
-        val koin_androidx_navigation = Dep("io.insert-koin", "koin-androidx-navigation", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
-        val koin_androidx_workmanager = Dep("io.insert-koin", "koin-androidx-workmanager", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
-        val koin_core = Dep("io.insert-koin", "koin-core", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
-        val koin_ktor = Dep("io.insert-koin", "koin-ktor", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
-        val koin_logger_slf4j = Dep("io.insert-koin", "koin-logger-slf4j", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_androidx_compose = Dep("io.insert-koin", "koin-androidx-compose", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_androidx_navigation = Dep("io.insert-koin", "koin-androidx-navigation", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_androidx_workmanager = Dep("io.insert-koin", "koin-androidx-workmanager", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_core = Dep("io.insert-koin", "koin-core", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_ktor = Dep("io.insert-koin", "koin-ktor", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_logger_slf4j = Dep("io.insert-koin", "koin-logger-slf4j", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
         val koin_test = Dep("io.insert-koin", "koin-test", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
         val koin_test_junit4 = Dep("io.insert-koin", "koin-test-junit4", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
-        val koin_test_junit5 = Dep("io.insert-koin", "koin-test-junit5", Ver("3.5.3", 0), Ver("3.5.4-RC1", 100), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
+        val koin_test_junit5 = Dep("io.insert-koin", "koin-test-junit5", Ver("3.5.3", 0), Ver("3.5.4-RC2", 100), Ver("3.6.0-wasm-alpha2", 300))
     }
     object Kotest {
         val assertions_arrow = Dep("io.kotest", "kotest-assertions-arrow", Ver("4.4.3", 0))
@@ -1564,7 +1564,7 @@ object Org {
         }
     }
     object Robolectric {
-        val robolectric = Dep("org.robolectric", "robolectric", Ver("4.11.1", 0))
+        val robolectric = Dep("org.robolectric", "robolectric", Ver("4.12", 0))
     }
     object SpekFramework {
         object Spek2 {
