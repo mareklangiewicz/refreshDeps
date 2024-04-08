@@ -46,8 +46,7 @@ class MyExperiments {
                     else this
                 }
 
-            val vers = versions.map { it.value to it.stabilityLevel.instability }
-            outputmap.putDep(path, valName, moduleId.group to moduleId.name to vers)
+            outputmap.putDep(path, valName, moduleId.group to moduleId.name to versions.map { it.value })
         }
 
         testResources.resolve("objects-for-deps.txt")
@@ -106,7 +105,7 @@ private val StabilityLevel.instability get() = when (this) {
 }
 
 private typealias GroupAndName = Pair<String, String>
-private typealias Ver = Pair<String, Int>
+private typealias Ver = String
 private typealias Vers = List<Ver>
 private typealias Dep = Pair<GroupAndName, Vers>
 private typealias DepTree = MutableMap<String, Any>
@@ -137,17 +136,17 @@ private fun StringBuilder.appendDep(indent: Int, valname: String, dep: Dep) {
     //   (todo_someday: fix in upstream refreshVersions repo)
 
     val versStr = buildString {
-        for ((ver, instability) in vers) {
+        for (ver in vers) {
             if ('<' in ver || '>' in ver) {
                 allVerCorrect = false
                 println("Incorrect version found for module $name:")
                 println(ver)
             }
-            else append(", Ver(\"$ver\", $instability)")
+            else append(" w \"$ver\"")
         }
     }
     if (!allVerCorrect) appendLine("@Deprecated(\"Warning: Some incorrect versions found (filtered out)\")".withIndent(indent))
-    appendLine("val $valname = Dep(\"$group\", \"$name\"$versStr)".withIndent(indent))
+    appendLine("val $valname = \"$group\" d \"$name\"$versStr".withIndent(indent))
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -158,12 +157,12 @@ private fun StringBuilder.appendDepTree(indent: Int, tree: DepTree) {
         appendDep(indent, valname, dep as Dep)
     for ((objectName, content) in entriesForGroups) {
         appendLine("object $objectName {".withIndent(indent))
-        appendDepTree(indent + 4, content as DepTree)
+        appendDepTree(indent + 2, content as DepTree)
         appendLine("}".withIndent(indent))
     }
 }
 
-private fun String.withIndent(indent: Int = 4) = " ".repeat(indent) + this
+private fun String.withIndent(indent: Int = 2) = " ".repeat(indent) + this
 
 private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
     if (isEmpty()) return this.toString()
