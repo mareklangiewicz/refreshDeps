@@ -25,6 +25,7 @@ jobs:
       name: 'MyExperiments.generateDeps'
       uses: 'gradle/actions/setup-gradle@v3'
       with:
+        cache-disabled: 'true'
         arguments: '--info :refreshVersions:test --tests MyExperiments.generateDeps'
         build-root-directory: 'plugins'
       env:
