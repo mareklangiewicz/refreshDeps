@@ -60,8 +60,8 @@ class MyExperiments {
             "https://dl.google.com/dl/android/maven2/",
             "https://plugins.gradle.org/m2/",
 
-            "https://androidx.dev/storage/compose-compiler/repository/",
-            // FIXME: very wasteful, I should use it only for jetpack (androidx) compose compiler
+            // "https://androidx.dev/storage/compose-compiler/repository/",
+            // // FIXME: very wasteful, I should use it only for jetpack (androidx) compose compiler
 
             "https://maven.pkg.jetbrains.space/public/p/compose/dev/",
             // FIXME: very wasteful, I should use it only for compose mpp stuff (jb compose compiler too)
