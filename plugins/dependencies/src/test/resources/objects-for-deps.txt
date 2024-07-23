@@ -582,7 +582,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.0.4"
       val r8 = "com.android.tools" d "r8" w "8.3.37"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.5.1" w "8.6.0-beta01" w "8.7.0-alpha01"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.5.1" w "8.6.0-beta01" w "8.7.0-alpha02"
       }
     }
   }
@@ -1745,14 +1745,14 @@ object Pl {
     val kgroundx_maintenance = "pl.mareklangiewicz" d "kgroundx-maintenance" w "0.0.69"
     val kgroundx_maintenance_js = "pl.mareklangiewicz" d "kgroundx-maintenance-js"
     val kgroundx_maintenance_jvm = "pl.mareklangiewicz" d "kgroundx-maintenance-jvm" w "0.0.69"
-    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.72"
-    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.72"
-    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.72"
-    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.72"
-    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.72"
-    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.72"
-    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.72"
-    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.72"
+    val kommandjupyter = "pl.mareklangiewicz" d "kommandjupyter" w "0.0.73"
+    val kommandjupyter_jvm = "pl.mareklangiewicz" d "kommandjupyter-jvm" w "0.0.73"
+    val kommandline = "pl.mareklangiewicz" d "kommandline" w "0.0.73"
+    val kommandline_js = "pl.mareklangiewicz" d "kommandline-js" w "0.0.73"
+    val kommandline_jvm = "pl.mareklangiewicz" d "kommandline-jvm" w "0.0.73"
+    val kommandsamples = "pl.mareklangiewicz" d "kommandsamples" w "0.0.73"
+    val kommandsamples_js = "pl.mareklangiewicz" d "kommandsamples-js" w "0.0.73"
+    val kommandsamples_jvm = "pl.mareklangiewicz" d "kommandsamples-jvm" w "0.0.73"
     val rxmock = "pl.mareklangiewicz" d "rxmock" w "0.0.24"
     val rxmock_jvm = "pl.mareklangiewicz" d "rxmock-jvm" w "0.0.24"
     val smokk = "pl.mareklangiewicz" d "smokk" w "0.0.09"
