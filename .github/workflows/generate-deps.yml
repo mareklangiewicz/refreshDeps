@@ -22,15 +22,16 @@ jobs:
         java-version: '22'
         distribution: 'zulu'
     - id: 'step-2'
-      name: 'MyExperiments.generateDeps'
       uses: 'gradle/actions/setup-gradle@v4'
       with:
         gradle-version: '8.6'
-        arguments: '--info :refreshVersions:test --tests MyExperiments.generateDeps'
-        build-root-directory: 'plugins'
+    - id: 'step-3'
+      name: 'MyExperiments.generateDeps'
       env:
         GENERATE_DEPS: 'true'
-    - id: 'step-3'
+      working-directory: 'plugins'
+      run: 'gradle --info :refreshVersions:test --tests MyExperiments.generateDeps'
+    - id: 'step-4'
       name: 'Add and commit file'
       uses: 'EndBug/add-and-commit@v9'
       with:
