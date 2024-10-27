@@ -191,7 +191,16 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
             "com.google.truth" to "truth-parent",
             "io.realm" to "realm-gradle-plugin",
             "io.github.typesafegithub" to "github-workflows-kt",
+            "io.github.typesafegithub" to "action-binding-generator",
+            "io.github.typesafegithub" to "action-updates-checker",
+            "io.github.typesafegithub" to "shared-internal",
             "com.github.ajalt.mordant" to "mordant",
+            "com.github.ajalt.mordant" to "mordant-coroutines",
+            "com.github.ajalt.mordant" to "mordant-markdown",
+            "com.github.ajalt.mordant" to "mordant-jvm-jna",
+            "com.github.ajalt.mordant" to "mordant-omnibus",
+            "com.github.ajalt.mordant" to "mordant-graal-ffi",
+            "com.github.ajalt.mordant" to "mordant-jvm-ffm",
         ).map { it.first to it.second } +
         listOf(
             "core", "ktor-client", "ktor-server", "transport-ktor", "transport-ktor-websocket",
