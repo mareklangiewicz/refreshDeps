@@ -228,7 +228,7 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
 //  https://repo1.maven.org/maven2/pl/mareklangiewicz/
 private fun getLangaraModules(): List<ModuleId.Maven> = listOf(
     "abcdk", "abcdk-js", "abcdk-jvm", "abcdk-linuxx64",
-    "kground", "kground-io", "kgroundx", "kgroundx-io", "kgroundx-maintenance",
+    "kground", "kground-io", "kgroundx", "kgroundx-io", "kgroundx-maintenance", "kgroundx-workflows", "kgroundx-experiments",
     "kground-jvm", "kground-io-jvm", "kgroundx-jvm", "kgroundx-io-jvm", "kgroundx-maintenance-jvm",
     "kground-js", "kground-io-js", "kgroundx-js", "kgroundx-io-js", "kgroundx-maintenance-js",
     "kgroundx-jupyter", "kgroundx-jupyter-jvm",
