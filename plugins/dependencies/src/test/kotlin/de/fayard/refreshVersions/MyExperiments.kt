@@ -1,4 +1,5 @@
 @file:Suppress("SpellCheckingInspection")
+@file:OptIn(ExperimentalStdlibApi::class)
 
 package de.fayard.refreshVersions
 
@@ -24,7 +25,7 @@ class MyExperiments {
         val modules: List<ModuleId.Maven> = emptyList<ModuleId.Maven>() +
             getArtifactNameToConstantMapping().map { it.moduleId } +
             getAdditionalModules() +
-            getLangaraModules()
+            getLangiewiczModules()
 
         val input = getVersionCandidates(modules)
 
@@ -201,6 +202,9 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
             "com.github.ajalt.mordant" to "mordant-omnibus",
             "com.github.ajalt.mordant" to "mordant-graal-ffi",
             "com.github.ajalt.mordant" to "mordant-jvm-ffm",
+            "org.slf4j" to "slf4j-api",
+            "org.slf4j" to "slf4j-simple",
+            "org.hildan.chrome" to "chrome-devtools-kotlin",
         ).map { it.first to it.second } +
         listOf(
             "core", "ktor-client", "ktor-server", "transport-ktor", "transport-ktor-websocket",
@@ -226,21 +230,25 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
 
 // TODO_later: fetch the list from maven central instead of hardcoding
 //  https://repo1.maven.org/maven2/pl/mareklangiewicz/
-private fun getLangaraModules(): List<ModuleId.Maven> = listOf(
-    "abcdk", "abcdk-js", "abcdk-jvm", "abcdk-linuxx64",
-    "kground", "kground-io", "kgroundx", "kgroundx-io", "kgroundx-maintenance", "kgroundx-workflows", "kgroundx-experiments",
-    "kground-jvm", "kground-io-jvm", "kgroundx-jvm", "kgroundx-io-jvm", "kgroundx-maintenance-jvm",
-    "kground-js", "kground-io-js", "kgroundx-js", "kgroundx-io-js", "kgroundx-maintenance-js",
-    "kgroundx-jupyter", "kgroundx-jupyter-jvm",
-    "kommandline", "kommandline-js", "kommandline-jvm",
-    "kommandsamples", "kommandsamples-js", "kommandsamples-jvm",
-    "kommandjupyter", "kommandjupyter-jvm",
-    "rxmock", "rxmock-jvm", "smokk",
-    "smokk-jvm", "smokkx", "smokkx-jvm",
-    "template-andro-app", "template-andro-lib", "template-mpp-lib", "template-mpp-lib-js", "template-mpp-lib-jvm",
-    "tuplek", "tuplek-js", "tuplek-jvm", "tuplek-linuxx64",
-    "upue", "upue-js", "upue-jvm", "upue-linuxx64", "upue-test", "upue-test-js", "upue-test-jvm",
-    "uspek", "uspek-js", "uspek-jvm", "uspek-linuxx64", "uspekx",
-    "uspekx-js", "uspekx-junit4", "uspekx-junit4-jvm", "uspekx-junit5", "uspekx-junit5-jvm", "uspekx-jvm", "uspekx-linuxx64",
-    "uwidgets", "uwidgets-js", "uwidgets-jvm", "uwidgets-udemo", "uwidgets-udemo-js", "uwidgets-udemo-jvm",
-).map { ModuleId.Maven("pl.mareklangiewicz", it) }
+private fun getLangiewiczModules(): List<ModuleId.Maven> = (
+        listOf("abcdk").withPlatforms() +
+        listOf("tuplek").withPlatforms() +
+        listOf("kground").withSuffixes("", "-io", "x", "x-io").withPlatforms() +
+        listOf("kground").withSuffixes("x-maintenance", "x-workflows", "x-experiments", "x-jupyter").withPlatforms(withJs = false, withLinuxX64 = false) +
+        listOf("kommand").withSuffixes("-line", "-samples").withPlatforms() +
+        listOf("rxmock").withPlatforms(withJs = false, withLinuxX64 = false) +
+        listOf("smokk", "smokkx").withPlatforms() +
+        listOf("upue", "upue-test").withPlatforms() +
+        listOf("uspek").withSuffixes("", "x").withPlatforms() +
+        listOf("uspek").withSuffixes("x-junit4", "x-junit5").withPlatforms(withJs = false, withLinuxX64 = false) +
+        listOf("uwidgets", "uwidgets-demo").withPlatforms(withLinuxX64 = false)
+    )
+    .map { ModuleId.Maven("pl.mareklangiewicz", it) }
+
+private fun List<String>.withSuffixes(suffixes: Iterable<String>) =
+    flatMap { base -> buildList { for (s in suffixes) add("$base$s") } }
+
+private fun List<String>.withSuffixes(vararg suffixes: String) = withSuffixes(suffixes.toList())
+
+private fun List<String>.withPlatforms(withBase: Boolean = true, withJvm: Boolean = true, withJs: Boolean = true, withLinuxX64: Boolean = true) =
+    withSuffixes(listOfNotNull("".takeIf { withBase  }, "-jvm".takeIf { withJvm }, "-js".takeIf { withJs }, "-linuxx64".takeIf { withLinuxX64 }))
