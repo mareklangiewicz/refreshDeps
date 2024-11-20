@@ -238,7 +238,7 @@ private fun getLangiewiczModules(): List<ModuleId.Maven> = (
         listOf("kommand").withSuffixes("-line", "-samples").withPlatforms() +
         listOf("rxmock").withPlatforms(withJs = false, withLinuxX64 = false) +
         listOf("smokk", "smokkx").withPlatforms() +
-        listOf("upue", "upue-test").withPlatforms() +
+        listOf("upue").withPlatforms() +
         listOf("uspek").withSuffixes("", "x").withPlatforms() +
         listOf("uspek").withSuffixes("x-junit4", "x-junit5").withPlatforms(withJs = false, withLinuxX64 = false) +
         listOf("uwidgets", "uwidgets-demo").withPlatforms(withLinuxX64 = false)
