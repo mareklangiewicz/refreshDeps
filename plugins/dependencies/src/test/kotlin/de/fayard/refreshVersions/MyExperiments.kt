@@ -195,6 +195,9 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
             "io.github.typesafegithub" to "action-binding-generator",
             "io.github.typesafegithub" to "action-updates-checker",
             "io.github.typesafegithub" to "shared-internal",
+            "com.github.ajalt.clikt" to "clikt", // https://repo1.maven.org/maven2/com/github/ajalt/clikt/
+            "com.github.ajalt.clikt" to "clikt-core",
+            "com.github.ajalt.clikt" to "clikt-markdown",
             "com.github.ajalt.mordant" to "mordant",
             "com.github.ajalt.mordant" to "mordant-coroutines",
             "com.github.ajalt.mordant" to "mordant-markdown",
