@@ -180,11 +180,248 @@ private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
 
 private fun Char.upIf(up: Boolean) = if (up) toUpperCase() else this
 
+
+// https://mvnrepository.com/artifact/org.jetbrains.kotlin
+private val someJbKotlinStuff = listOf(
+    // group here is always "org.jetbrains.kotlin"
+    "kotlin-bom",
+    "kotlin-stdlib",
+    "kotlin-stdlib-jdk7",
+    "kotlin-stdlib-jdk8",
+    "kotlin-stdlib-js",
+    "kotlin-stdlib-wasm",
+    "kotlin-stdlib-wasm-js",
+    "kotlin-stdlib-wasm-wasi",
+    "kotlin-gradle-plugin",
+    "kotlin-gradle-plugin-api",
+    "kotlin-maven-plugin",
+    "kotlin-compiler",
+    "kotlin-compiler-embeddable",
+    "kotlin-scripting-common",
+    "kotlin-scripting-jvm",
+    "kotlin-scripting-jvm-host",
+    "kotlin-scripting-compiler",
+    "kotlin-scripting-compiler-embeddable",
+    "kotlin-script-runtime",
+    "kotlin-allopen",
+    "atomicfu",
+    "kotlin-atomicfu-runtime",
+    "kotlin-dom-api-compat",
+    "kotlin-js-plain-objects",
+    "kotlin-reflect",
+    "kotlin-android-extensions-runtime",
+    "kotlin-parcelize-runtime",
+    "kotlin-test",
+    "kotlin-test-junit",
+    "kotlin-test-junit5",
+    "kotlin-test-js",
+    "kotlin-test-wasm-js",
+    "kotlin-serialization",
+).map { "org.jetbrains.kotlin" to it }
+
+
+// https://mvnrepository.com/artifact/org.jetbrains.kotlinx
+private val someJbKotlinXStuff = listOf(
+    // group here is always "org.jetbrains.kotlinx"
+    "kotlinx-coroutines-core",
+    "kotlinx-coroutines-core-jvm",
+    "kotlinx-coroutines-core-js",
+    "kotlinx-coroutines-jdk8",
+    "kotlinx-coroutines-reactive",
+    "kotlinx-coroutines-reactor",
+    "kotlinx-coroutines-rx2",
+    "kotlinx-coroutines-rx3",
+    "kotlinx-coroutines-debug",
+    "kotlinx-coroutines-android",
+    "kotlinx-coroutines-guava",
+    "kotlinx-coroutines-swing",
+    "kotlinx-coroutines-javafx",
+    "kotlinx-coroutines-slf4j",
+    "kotlinx-coroutines-test",
+    "kotlinx-coroutines-test-jvm",
+    "kotlinx-coroutines-test-js",
+    "kotlinx-io-core",
+    "kotlinx-io-core-jvm",
+    "kotlinx-io-core-js",
+    "kotlinx-io-core-wasm-js",
+    "kotlinx-serialization-core",
+    "kotlinx-serialization-core-jvm",
+    "kotlinx-serialization-core-js",
+    "kotlinx-serialization-core-wasm-js",
+    "kotlinx-serialization-core-wasm-wasi",
+    "kotlinx-serialization-json",
+    "kotlinx-serialization-json-jvm",
+    "kotlinx-serialization-json-js",
+    "kotlinx-serialization-json-wasm-js",
+    "kotlinx-serialization-protobuf-jvm",
+    "kotlinx-serialization-protobuf-js",
+    "kotlinx-datetime",
+    "kotlinx-datetime-jvm",
+    "kotlinx-datetime-js",
+    "kotlinx-datetime-wasm-js",
+    "atomicfu",
+    "atomicfu-jvm",
+    "atomicfu-js",
+    "atomicfu-wasm-js",
+    "dataframe",
+    "kotlinx-html",
+    "kotlinx-html-jvm",
+    "kotlinx-html-js",
+    "kotlinx-browser-wasm-js",
+).map { "org.jetbrains.kotlinx" to it }
+
+private val someJbMainComposeStuff = listOf(
+    // group here is always JUST "org.jetbrains.compose"
+    "compose-gradle-plugin",
+    "compose-full",
+    "preview-rpc",
+    "compose-preview-runtime-desktop",
+).map { "org.jetbrains.compose" to it }
+
+// https://mvnrepository.com/artifact/org.jetbrains.compose
+private val someJbComposeStuff = listOf(
+    // group here is always PREFIXED with "org.jetbrains.compose"
+
+    "compiler" to "compiler",
+    "compiler" to "compiler-hosted",
+
+    "runtime" to "runtime",
+    "runtime" to "runtime-js",
+    "runtime" to "runtime-wasm-js",
+    "runtime" to "runtime-saveable",
+    "runtime" to "runtime-saveable-js",
+    "runtime" to "runtime-saveable-wasm-js",
+
+    "ui" to "ui",
+    "ui" to "ui-js",
+    "ui" to "ui-wasm-js",
+    "ui" to "ui-tooling",
+    "ui" to "ui-tooling-preview",
+    "ui" to "ui-unit",
+    "ui" to "ui-unit-js",
+    "ui" to "ui-unit-wasm-js",
+    "ui" to "ui-graphics",
+    "ui" to "ui-graphics-js",
+    "ui" to "ui-graphics-wasm-js",
+    "ui" to "ui-text",
+    "ui" to "ui-text-js",
+    "ui" to "ui-text-wasm-js",
+    "ui" to "ui-geometry",
+    "ui" to "ui-geometry-js",
+    "ui" to "ui-geometry-wasm-js",
+    "ui" to "ui-test",
+    "ui" to "ui-test-js",
+    "ui" to "ui-test-wasm-js",
+    "ui" to "ui-test-junit4",
+
+    "animation" to "animation",
+    "animation" to "animation-js",
+    "animation" to "animation-wasm-js",
+
+    "animation" to "animation-core",
+    "animation" to "animation-core-js",
+    "animation" to "animation-core-wasm-js",
+
+    "animation" to "animation-graphics",
+    "animation" to "animation-graphics-js",
+    "animation" to "animation-graphics-wasm-js",
+
+    "foundation" to "foundation",
+    "foundation" to "foundation-js",
+    "foundation" to "foundation-wasm-js",
+    "foundation" to "foundation-layout",
+    "foundation" to "foundation-layout-js",
+    "foundation" to "foundation-layout-wasm-js",
+
+    "material3" to "material3",
+    "material3" to "material3-js",
+    "material3" to "material3-wasm-js",
+    "material3" to "material3-window-size-class",
+    "material3" to "material3-window-size-class-js",
+    "material3" to "material3-window-size-class-wasm-js",
+
+    // TODO_maybe: add adaptive subgroup? https://mvnrepository.com/artifact/org.jetbrains.compose.material3.adaptive
+    // TODO_maybe: add common subgroup? https://mvnrepository.com/artifact/org.jetbrains.compose.material3.common
+
+    "material" to "material",
+    "material" to "material-js",
+    "material" to "material-wasm-js",
+    "material" to "material-icons-core",
+    "material" to "material-icons-core-js",
+    "material" to "material-icons-core-wasm-js",
+    "material" to "material-icons-extended",
+    "material" to "material-icons-extended-js",
+    "material" to "material-icons-extended-wasm-js",
+    "material" to "material-ripple",
+    "material" to "material-ripple-js",
+    "material" to "material-ripple-wasm-js",
+    "material" to "material-navigation",
+    "material" to "material-navigation-js",
+    "material" to "material-navigation-wasm-js",
+
+    "components" to "components-resources",
+    "components" to "components-resources-js",
+    "components" to "components-resources-wasmJs", // yes, bad/different naming, "wasmJs" suffix instead of "wasm-js"
+    "components" to "components-ui-tooling-preview",
+    "components" to "components-ui-tooling-preview-js",
+    "components" to "components-ui-tooling-preview-wasmJs",
+    "components" to "components-splitpane",
+    "components" to "components-animatedimage",
+
+    "desktop" to "desktop",
+    "desktop" to "desktop-jvm",
+
+    "html" to "html-core",
+    "html" to "html-core-jvm",
+    "html" to "html-core-js",
+    "html" to "html-svg",
+    "html" to "html-svg-js",
+    "html" to "html-test-utils",
+    "html" to "html-test-utils-js",
+    "html" to "html-benchmark-core",
+    "html" to "html-benchmark-core-js",
+).map { "org.jetbrains.compose." + it.first to it.second }
+
+
+// https://mvnrepository.com/artifact/org.jetbrains.androidx
+private val someJbAndroidxStuff = listOf(
+    // group here is always PREFIXED with "org.jetbrains.androidx"
+
+    "lifecycle" to "lifecycle-common",
+    "lifecycle" to "lifecycle-common-js",
+    "lifecycle" to "lifecycle-common-wasm-js",
+    "lifecycle" to "lifecycle-runtime",
+    "lifecycle" to "lifecycle-runtime-js",
+    "lifecycle" to "lifecycle-runtime-wasm-js",
+    "lifecycle" to "lifecycle-runtime-compose",
+    "lifecycle" to "lifecycle-runtime-compose-js",
+    "lifecycle" to "lifecycle-runtime-compose-wasm-js",
+    "lifecycle" to "lifecycle-viewmodel",
+    "lifecycle" to "lifecycle-viewmodel-js",
+    "lifecycle" to "lifecycle-viewmodel-wasm-js",
+    "lifecycle" to "lifecycle-viewmodel-compose",
+    "lifecycle" to "lifecycle-viewmodel-compose-js",
+    "lifecycle" to "lifecycle-viewmodel-compose-wasm-js",
+    "lifecycle" to "lifecycle-viewmodel-savedstate",
+    "lifecycle" to "lifecycle-viewmodel-savedstate-js",
+    "lifecycle" to "lifecycle-viewmodel-savedstate-wasm-js",
+
+    // TODO_maybe: https://mvnrepository.com/artifact/org.jetbrains.androidx.navigation
+    // TODO_maybe: https://mvnrepository.com/artifact/org.jetbrains.androidx.core
+    // TODO_maybe: https://mvnrepository.com/artifact/org.jetbrains.androidx.savedstate
+    // TODO_maybe: https://mvnrepository.com/artifact/org.jetbrains.androidx.window
+    // TODO_maybe: https://mvnrepository.com/artifact/org.jetbrains.androidx.graphics
+).map { "org.jetbrains.androidx." + it.first to it.second }
+// TODO_maybe more: https://mvnrepository.com/artifact/org.jetbrains.kotlin-wrappers
+
 private fun getAdditionalModules(): List<ModuleId.Maven> = (
     emptyList<Pair<String, String>>() +
-        listOf("org.jetbrains.kotlin" to "kotlin-reflect") +
-        listOf("org.jetbrains.compose.compiler" to "compiler") +
-        listOf("androidx.compose.compiler" to "compiler") +
+        someJbKotlinStuff +
+        someJbKotlinXStuff +
+        someJbMainComposeStuff +
+        someJbComposeStuff +
+        someJbAndroidxStuff +
+        listOf("androidx.compose.compiler" to "compiler") + // FIXME: do it "new way" ??
         listOf(
             "androidx.percentlayout" to "percentlayout",
             "org.mockito.kotlin" to "mockito-kotlin",
