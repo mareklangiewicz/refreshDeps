@@ -180,6 +180,13 @@ private fun CharSequence.myCamelCase(upUnknownFirst: Boolean = true): String {
 
 private fun Char.upIf(up: Boolean) = if (up) toUpperCase() else this
 
+// Note: new gradle requires explicit launcher dependency when using junit in projects:
+// https://docs.gradle.org/8.13/userguide/upgrading_version_8.html#test_framework_implementation_dependencies
+// https://mvnrepository.com/artifact/org.junit.platform
+// https://central.sonatype.com/namespace/org.junit.platform
+private val someJUnitPlatformStuff = listOf(
+    "launcher", "runner", "engine", "commons"
+).map { "org.junit.platform" to "junit-platform-$it" }
 
 // https://mvnrepository.com/artifact/org.jetbrains.kotlin
 private val someJbKotlinStuff = listOf(
@@ -416,6 +423,7 @@ private val someJbAndroidxStuff = listOf(
 
 private fun getAdditionalModules(): List<ModuleId.Maven> = (
     emptyList<Pair<String, String>>() +
+        someJUnitPlatformStuff +
         someJbKotlinStuff +
         someJbKotlinXStuff +
         someJbMainComposeStuff +
