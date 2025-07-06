@@ -62,10 +62,10 @@ class MyExperiments {
             "https://plugins.gradle.org/m2/",
 
             // "https://androidx.dev/storage/compose-compiler/repository/",
-            // // FIXME: very wasteful, I should use it only for jetpack (androidx) compose compiler
+            // // FIXME NOW (just filter with name?): very wasteful, I should use it only for jetpack (androidx) compose compiler
 
             "https://maven.pkg.jetbrains.space/public/p/compose/dev/",
-            // FIXME: very wasteful, I should use it only for compose mpp stuff (jb compose compiler too)
+            // FIXME NOW (just filter with name?): very wasteful, I should use it only for compose mpp stuff (jb compose compiler too)
         )
     ): Map<ModuleId.Maven, List<Version>> = runBlocking {
         modules.associateWith { moduleId ->
@@ -454,14 +454,15 @@ private fun getAdditionalModules(): List<ModuleId.Maven> = (
             "org.slf4j" to "slf4j-simple",
             "org.hildan.chrome" to "chrome-devtools-kotlin",
         ).map { it.first to it.second } +
+        // new rsocket-kotlin plugins for ktor (note: name starting with ktor-..)
+        listOf( "server", "client",).map { "io.rsocket.kotlin" to "ktor-$it-rsocket" } +
         listOf(
-            "core", "ktor-client", "ktor-server", "transport-ktor", "transport-ktor-websocket",
+            "core", "transport-ktor-tcp", "transport-netty-tcp",
             "transport-ktor-websocket-client", "transport-ktor-websocket-server",
-            "transport-ktor-tcp", "transport-nodejs-tcp"
         ).map { "io.rsocket.kotlin" to "rsocket-$it" } +
         listOf(
             "compose" to "compose", "kotlinx" to "atomicfu"
-        ).map { "org.jetbrains." + it.first to it.second + "-gradle-plugin"} +
+        ).map { "org.jetbrains." + it.first to it.second + "-gradle-plugin"} + // FIXME: do it "new way"?
         listOf(
             "wrappers-bom", "actions-toolkit", "browser", "cesium", "css", "csstype", "emotion", "history",
             "js", "mui", "mui-icons", "node", "popper", "react", "react-beautiful-dnd", "react-core", "react-dom",
@@ -500,3 +501,4 @@ private fun List<String>.withSuffixes(vararg suffixes: String) = withSuffixes(su
 
 private fun List<String>.withPlatforms(withBase: Boolean = true, withJvm: Boolean = true, withJs: Boolean = true, withLinuxX64: Boolean = true) =
     withSuffixes(listOfNotNull("".takeIf { withBase  }, "-jvm".takeIf { withJvm }, "-js".takeIf { withJs }, "-linuxx64".takeIf { withLinuxX64 }))
+
