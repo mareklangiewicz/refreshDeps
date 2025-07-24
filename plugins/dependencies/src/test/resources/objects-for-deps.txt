@@ -664,7 +664,7 @@ object Com {
         val oss_licenses_plugin = "com.google.android.gms" d "oss-licenses-plugin" w "0.10.6"
         val play_services_analytics = "com.google.android.gms" d "play-services-analytics" w "18.1.1"
         val play_services_appset = "com.google.android.gms" d "play-services-appset" w "16.1.0"
-        val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.3.0"
+        val play_services_auth = "com.google.android.gms" d "play-services-auth" w "21.4.0"
         val play_services_auth_api_phone = "com.google.android.gms" d "play-services-auth-api-phone" w "18.2.0"
         val play_services_auth_blockstore = "com.google.android.gms" d "play-services-auth-blockstore" w "16.4.0"
         val play_services_awareness = "com.google.android.gms" d "play-services-awareness" w "19.1.0"
@@ -1787,7 +1787,7 @@ object Org {
       val spring_rabbit_test = "org.springframework.amqp" d "spring-rabbit-test" w "3.2.6" w "4.0.0-M3"
     }
     object Batch {
-      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.2"
+      val spring_batch_test = "org.springframework.batch" d "spring-batch-test" w "5.2.2" w "6.0.0-M1"
     }
     object Boot {
       val spring_boot_configuration_processor = "org.springframework.boot" d "spring-boot-configuration-processor" w "3.5.3"
