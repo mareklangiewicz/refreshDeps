@@ -582,7 +582,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.11.18"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.11.1" w "8.12.0-rc01" w "8.13.0-alpha02"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.12.0" w "8.13.0-alpha03"
       }
     }
   }
@@ -704,18 +704,18 @@ object Com {
         val strict_version_matcher_plugin = "com.google.android.gms" d "strict-version-matcher-plugin" w "1.2.4"
       }
       object Horologist {
-        val audio = "com.google.android.horologist" d "horologist-audio" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val composables = "com.google.android.horologist" d "horologist-composables" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val media = "com.google.android.horologist" d "horologist-media" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
-        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.6.23" w "0.7.14-beta" w "0.8.0-alpha"
+        val audio = "com.google.android.horologist" d "horologist-audio" w "0.7.15" w "0.8.0-alpha"
+        val audio_ui = "com.google.android.horologist" d "horologist-audio-ui" w "0.7.15" w "0.8.0-alpha"
+        val composables = "com.google.android.horologist" d "horologist-composables" w "0.7.15" w "0.8.0-alpha"
+        val compose_layout = "com.google.android.horologist" d "horologist-compose-layout" w "0.7.15" w "0.8.0-alpha"
+        val compose_tools = "com.google.android.horologist" d "horologist-compose-tools" w "0.7.15" w "0.8.0-alpha"
+        val datalayer = "com.google.android.horologist" d "horologist-datalayer" w "0.7.15" w "0.8.0-alpha"
+        val media = "com.google.android.horologist" d "horologist-media" w "0.7.15" w "0.8.0-alpha"
+        val media3_backend = "com.google.android.horologist" d "horologist-media3-backend" w "0.7.15" w "0.8.0-alpha"
+        val media_data = "com.google.android.horologist" d "horologist-media-data" w "0.7.15" w "0.8.0-alpha"
+        val media_ui = "com.google.android.horologist" d "horologist-media-ui" w "0.7.15" w "0.8.0-alpha"
+        val network_awareness = "com.google.android.horologist" d "horologist-network-awareness" w "0.7.15" w "0.8.0-alpha"
+        val tiles = "com.google.android.horologist" d "horologist-tiles" w "0.7.15" w "0.8.0-alpha"
       }
       object Libraries {
         object Places {
@@ -1577,9 +1577,9 @@ object Org {
       }
     }
     object Exposed {
-      val core = "org.jetbrains.exposed" d "exposed-core" w "0.61.0" w "1.0.0-beta-4"
-      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.61.0" w "1.0.0-beta-4"
-      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.61.0" w "1.0.0-beta-4"
+      val core = "org.jetbrains.exposed" d "exposed-core" w "0.61.0" w "1.0.0-beta-5"
+      val dao = "org.jetbrains.exposed" d "exposed-dao" w "0.61.0" w "1.0.0-beta-5"
+      val jdbc = "org.jetbrains.exposed" d "exposed-jdbc" w "0.61.0" w "1.0.0-beta-5"
     }
     object Kotlin {
       val allopen = "org.jetbrains.kotlin" d "kotlin-allopen" w "2.2.0" w "2.2.10-RC" w "2.2.20-Beta2"
@@ -1627,7 +1627,7 @@ object Org {
       val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.29.0"
       val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.29.0"
       val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.29.0"
-      val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.3"
+      val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.4"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
       val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.4.0"
       val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.4.0"
