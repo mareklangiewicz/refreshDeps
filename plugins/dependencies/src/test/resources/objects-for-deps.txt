@@ -323,7 +323,7 @@ object AndroidX {
     val multidex = "androidx.multidex" d "multidex" w "2.0.1"
   }
   object Navigation {
-    val common = "androidx.navigation" d "navigation-common" w "2.9.6"
+    val common = "androidx.navigation" d "navigation-common" w "2.4.0-alpha02" w "2.9.6"
     val common_ktx = "androidx.navigation" d "navigation-common-ktx" w "2.4.0-alpha02" w "2.9.6"
     val compose = "androidx.navigation" d "navigation-compose" w "2.4.0-alpha02" w "2.9.6"
     val dynamic_features_fragment = "androidx.navigation" d "navigation-dynamic-features-fragment" w "2.9.6"
@@ -1480,10 +1480,10 @@ object Org {
         val graphics_js = "org.jetbrains.compose.animation" d "animation-graphics-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val graphics_wasm_js = "org.jetbrains.compose.animation" d "animation-graphics-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val js = "org.jetbrains.compose.animation" d "animation-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
-        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.9.3" w "1.10.0-rc01"
+        val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
       object Compiler {
-        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
+        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14"
         val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
@@ -1548,7 +1548,7 @@ object Org {
         val js = "org.jetbrains.compose.runtime" d "runtime-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val runtime = "org.jetbrains.compose.runtime" d "runtime" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val saveable = "org.jetbrains.compose.runtime" d "runtime-saveable" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
-        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.9.3" w "1.10.0-rc01"
+        val saveable_js = "org.jetbrains.compose.runtime" d "runtime-saveable-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val saveable_wasm_js = "org.jetbrains.compose.runtime" d "runtime-saveable-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
         val wasm_js = "org.jetbrains.compose.runtime" d "runtime-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
