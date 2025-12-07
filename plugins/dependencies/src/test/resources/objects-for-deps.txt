@@ -1287,9 +1287,9 @@ object Io {
     val websockets = "io.ktor" d "ktor-websockets" w "3.3.3"
   }
   object MockK {
-    val android = "io.mockk" d "mockk-android" w "1.14.6"
+    val android = "io.mockk" d "mockk-android" w "1.14.7"
     val common = "io.mockk" d "mockk-common" w "1.12.5"
-    val mockk = "io.mockk" d "mockk" w "1.14.6"
+    val mockk = "io.mockk" d "mockk" w "1.14.7"
   }
   object Pivotal {
     object Spring {
@@ -1483,7 +1483,7 @@ object Org {
         val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
       object Compiler {
-        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14"
+        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
         val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
@@ -1497,7 +1497,7 @@ object Org {
         val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.9.3" w "1.10.0-rc01" w "1.10.10-alpha01+dev3363"
       }
       object Desktop {
-        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
+        val desktop = "org.jetbrains.compose.desktop" d "desktop" w "1.9.3" w "1.10.0-rc01"
         val jvm = "org.jetbrains.compose.desktop" d "desktop-jvm" w "1.9.3" w "1.10.0-rc01" w "1.11.0-alpha01+dev3366"
       }
       object Foundation {
