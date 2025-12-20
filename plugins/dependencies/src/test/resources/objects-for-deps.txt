@@ -582,7 +582,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "8.13.17"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.2" w "9.0.0-rc01"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "8.13.2" w "9.0.0-rc01" w "9.1.0-alpha01"
       }
     }
   }
@@ -818,10 +818,10 @@ object Com {
     object Maps {
       object Android {
         val maps_compose = "com.google.maps.android" d "maps-compose" w "7.0.0"
-        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.1"
+        val maps_ktx = "com.google.maps.android" d "maps-ktx" w "5.2.2"
         val maps_rx = "com.google.maps.android" d "maps-rx" w "1.0.0"
         val maps_utils = "com.google.maps.android" d "android-maps-utils" w "3.20.1"
-        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "5.2.1"
+        val maps_utils_ktx = "com.google.maps.android" d "maps-utils-ktx" w "5.2.2"
       }
     }
     object MlKit {
@@ -1483,7 +1483,7 @@ object Org {
         val wasm_js = "org.jetbrains.compose.animation" d "animation-wasm-js" w "1.9.3" w "1.10.0-rc02" w "1.11.0-alpha01"
       }
       object Compiler {
-        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14"
+        val compiler = "org.jetbrains.compose.compiler" d "compiler" w "1.5.14" w "1.5.15"
         val hosted = "org.jetbrains.compose.compiler" d "compiler-hosted" w "1.5.14" w "1.5.15"
       }
       object Components {
@@ -1678,23 +1678,23 @@ object Org {
       val multik_native = "org.jetbrains.kotlinx" d "multik-native" w "0.1.1"
       val nodejs = "org.jetbrains.kotlinx" d "kotlinx-nodejs"
       val reflect_lite = "org.jetbrains.kotlinx" d "kotlinx.reflect.lite" w "1.1.0" w "1.2.0-RC"
-      val serialization_bom = "org.jetbrains.kotlinx" d "kotlinx-serialization-bom" w "1.9.0"
-      val serialization_cbor = "org.jetbrains.kotlinx" d "kotlinx-serialization-cbor" w "1.9.0"
-      val serialization_core = "org.jetbrains.kotlinx" d "kotlinx-serialization-core" w "1.9.0"
-      val serialization_core_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-js" w "1.9.0"
-      val serialization_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-jvm" w "1.9.0"
-      val serialization_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-js" w "1.9.0"
-      val serialization_core_wasm_wasi = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-wasi" w "1.9.0"
-      val serialization_hocon = "org.jetbrains.kotlinx" d "kotlinx-serialization-hocon" w "1.9.0"
-      val serialization_json = "org.jetbrains.kotlinx" d "kotlinx-serialization-json" w "1.9.0"
-      val serialization_json_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-js" w "1.9.0"
-      val serialization_json_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-jvm" w "1.9.0"
-      val serialization_json_okio = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-okio" w "1.9.0"
-      val serialization_json_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-wasm-js" w "1.9.0"
-      val serialization_properties = "org.jetbrains.kotlinx" d "kotlinx-serialization-properties" w "1.9.0"
-      val serialization_protobuf = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf" w "1.9.0"
-      val serialization_protobuf_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-js" w "1.9.0"
-      val serialization_protobuf_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-jvm" w "1.9.0"
+      val serialization_bom = "org.jetbrains.kotlinx" d "kotlinx-serialization-bom" w "1.9.0" w "1.10.0-RC"
+      val serialization_cbor = "org.jetbrains.kotlinx" d "kotlinx-serialization-cbor" w "1.9.0" w "1.10.0-RC"
+      val serialization_core = "org.jetbrains.kotlinx" d "kotlinx-serialization-core" w "1.9.0" w "1.10.0-RC"
+      val serialization_core_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-js" w "1.9.0" w "1.10.0-RC"
+      val serialization_core_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-jvm" w "1.9.0" w "1.10.0-RC"
+      val serialization_core_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-js" w "1.9.0" w "1.10.0-RC"
+      val serialization_core_wasm_wasi = "org.jetbrains.kotlinx" d "kotlinx-serialization-core-wasm-wasi" w "1.9.0" w "1.10.0-RC"
+      val serialization_hocon = "org.jetbrains.kotlinx" d "kotlinx-serialization-hocon" w "1.9.0" w "1.10.0-RC"
+      val serialization_json = "org.jetbrains.kotlinx" d "kotlinx-serialization-json" w "1.9.0" w "1.10.0-RC"
+      val serialization_json_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-js" w "1.9.0" w "1.10.0-RC"
+      val serialization_json_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-jvm" w "1.9.0" w "1.10.0-RC"
+      val serialization_json_okio = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-okio" w "1.9.0" w "1.10.0-RC"
+      val serialization_json_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-json-wasm-js" w "1.9.0" w "1.10.0-RC"
+      val serialization_properties = "org.jetbrains.kotlinx" d "kotlinx-serialization-properties" w "1.9.0" w "1.10.0-RC"
+      val serialization_protobuf = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf" w "1.9.0" w "1.10.0-RC"
+      val serialization_protobuf_js = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-js" w "1.9.0" w "1.10.0-RC"
+      val serialization_protobuf_jvm = "org.jetbrains.kotlinx" d "kotlinx-serialization-protobuf-jvm" w "1.9.0" w "1.10.0-RC"
     }
     object Kotlin_Wrappers {
       val bom = "org.jetbrains.kotlin-wrappers" d "kotlin-wrappers-bom" w "2025.12.7"
