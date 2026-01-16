@@ -1152,17 +1152,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.2.0-beta2"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.2.0-beta2"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.2.0-beta2"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.2.0-beta2"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.2.0-beta2"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.2.0-beta2"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.2.0-beta2"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.2.0-beta2"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.2.0-beta2"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.2.0-beta2"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-beta2"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.1.1" w "4.2.0-beta3"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.1.1" w "4.2.0-beta3"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.1.1" w "4.2.0-beta3"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.1.1" w "4.2.0-beta3"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.1.1" w "4.2.0-beta3"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.1.1" w "4.2.0-beta3"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.1.1" w "4.2.0-beta3"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.1.1" w "4.2.0-beta3"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.1.1" w "4.2.0-beta3"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.1.1" w "4.2.0-beta3"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.1.1" w "4.2.0-beta3"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.0.7" w "6.1.0-RC4"
@@ -1882,7 +1882,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.0"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.2"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
