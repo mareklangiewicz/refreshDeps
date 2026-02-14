@@ -582,7 +582,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.0.32"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.0.0" w "9.1.0-alpha09"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.0.1" w "9.1.0-alpha09"
       }
     }
   }
@@ -1882,7 +1882,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.2"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.3" w "5.1.0-M1"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
@@ -1915,9 +1915,9 @@ object Org {
       val spring_restdocs_webtestclient = "org.springframework.restdocs" d "spring-restdocs-webtestclient" w "4.0.0"
     }
     object Security {
-      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.0.2" w "7.1.0-M1"
-      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.0.2" w "7.1.0-M1"
-      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.0.2" w "7.1.0-M1"
+      val spring_security_messaging = "org.springframework.security" d "spring-security-messaging" w "7.0.3" w "7.1.0-M2"
+      val spring_security_rsocket = "org.springframework.security" d "spring-security-rsocket" w "7.0.3" w "7.1.0-M2"
+      val spring_security_test = "org.springframework.security" d "spring-security-test" w "7.0.3" w "7.1.0-M2"
     }
     object Session {
       val spring_session_data_redis = "org.springframework.session" d "spring-session-data-redis" w "4.0.1"
