@@ -1072,9 +1072,9 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "5.5.1" w "6.0.0-alpha03"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "5.5.1" w "6.0.0-alpha03"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "5.5.1" w "6.0.0-alpha03"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "6.0.0"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "6.0.0"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "6.0.0"
     }
   }
 }
@@ -1490,10 +1490,10 @@ object Org {
         val animatedimage = "org.jetbrains.compose.components" d "components-animatedimage" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val resources = "org.jetbrains.compose.components" d "components-resources" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val resources_js = "org.jetbrains.compose.components" d "components-resources-js" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
-        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.10.2" w "1.11.0-alpha04"
+        val resources_wasmjs = "org.jetbrains.compose.components" d "components-resources-wasmJs" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val splitpane = "org.jetbrains.compose.components" d "components-splitpane" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
-        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.10.2" w "1.11.0-alpha04"
-        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.10.2" w "1.11.0-alpha04"
+        val ui_tooling_preview = "org.jetbrains.compose.components" d "components-ui-tooling-preview" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
+        val ui_tooling_preview_js = "org.jetbrains.compose.components" d "components-ui-tooling-preview-js" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
         val ui_tooling_preview_wasmjs = "org.jetbrains.compose.components" d "components-ui-tooling-preview-wasmJs" w "1.10.2" w "1.11.0-alpha02" w "1.11.0-alpha04"
       }
       object Desktop {
@@ -1882,7 +1882,7 @@ object Org {
       val spring_cloud_stream_binder_rabbit = "org.springframework.cloud" d "spring-cloud-stream-binder-rabbit" w "5.0.1"
     }
     object Data {
-      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.3" w "5.1.0-M1"
+      val spring_data_rest_hal_explorer = "org.springframework.data" d "spring-data-rest-hal-explorer" w "5.0.4" w "5.1.0-M2"
     }
     object Geode {
       val spring_geode_bom = "org.springframework.geode" d "spring-geode-bom" w "1.7.5"
