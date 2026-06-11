@@ -5,7 +5,7 @@
 name: 'Generate Deps'
 on:
   schedule:
-  - cron: '37 5 * * *'
+  - cron: '17 5 * * *'
   workflow_dispatch: {}
 jobs:
   generate-deps:
