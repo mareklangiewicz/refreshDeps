@@ -1152,17 +1152,17 @@ object Io {
     }
   }
   object Insert_koin {
-    val koin_android = "io.insert-koin" d "koin-android" w "4.2.1"
-    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.2.1"
-    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.2.1"
-    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.2.1"
-    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.2.1"
-    val koin_core = "io.insert-koin" d "koin-core" w "4.2.1"
-    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.2.1"
-    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.2.1"
-    val koin_test = "io.insert-koin" d "koin-test" w "4.2.1"
-    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.2.1"
-    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.2.1"
+    val koin_android = "io.insert-koin" d "koin-android" w "4.2.2"
+    val koin_android_compat = "io.insert-koin" d "koin-android-compat" w "4.2.2"
+    val koin_androidx_compose = "io.insert-koin" d "koin-androidx-compose" w "4.2.2"
+    val koin_androidx_navigation = "io.insert-koin" d "koin-androidx-navigation" w "4.2.2"
+    val koin_androidx_workmanager = "io.insert-koin" d "koin-androidx-workmanager" w "4.2.2"
+    val koin_core = "io.insert-koin" d "koin-core" w "4.2.2"
+    val koin_ktor = "io.insert-koin" d "koin-ktor" w "4.2.2"
+    val koin_logger_slf4j = "io.insert-koin" d "koin-logger-slf4j" w "4.2.2"
+    val koin_test = "io.insert-koin" d "koin-test" w "4.2.2"
+    val koin_test_junit4 = "io.insert-koin" d "koin-test-junit4" w "4.2.2"
+    val koin_test_junit5 = "io.insert-koin" d "koin-test-junit5" w "4.2.2"
   }
   object Kotest {
     val assertions_arrow = "io.kotest" d "kotest-assertions-arrow" w "6.1.11"
