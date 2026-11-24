@@ -582,7 +582,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.5.33" w "9.6.0-alpha15"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.5.2" w "9.6.0-alpha05"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.5.2" w "9.6.0-alpha06"
       }
     }
   }
@@ -854,7 +854,7 @@ object Com {
       val storage = "com.google.modernstorage" d "modernstorage-storage" w "1.0.0-alpha06"
     }
     object Oboe {
-      val oboe = "com.google.oboe" d "oboe" w "1.11.0"
+      val oboe = "com.google.oboe" d "oboe" w "1.11.2"
     }
     object Truth {
       val parent = "com.google.truth" d "truth-parent" w "1.4.5"
@@ -1072,21 +1072,21 @@ object Com {
       val sqljs_driver = "com.squareup.sqldelight" d "sqljs-driver" w "1.5.5"
     }
     object Wire {
-      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "7.2.2"
-      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "7.2.2"
-      val runtime = "com.squareup.wire" d "wire-runtime" w "7.2.2"
+      val gradle_plugin = "com.squareup.wire" d "wire-gradle-plugin" w "7.2.2" w "8.0.0-alpha01"
+      val grpc_client = "com.squareup.wire" d "wire-grpc-client" w "7.2.2" w "8.0.0-alpha01"
+      val runtime = "com.squareup.wire" d "wire-runtime" w "7.2.2" w "8.0.0-alpha01"
     }
   }
 }
 object Io {
   object Arrow_kt {
-    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.3.0.1"
-    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.3.0.1"
-    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.3.0.1"
-    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.3.0.1"
-    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.3.0.1"
-    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.3.0.1"
-    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.3.0.1"
+    val arrow_core = "io.arrow-kt" d "arrow-core" w "2.3.0.1" w "2.4.0-alpha.1"
+    val arrow_fx_coroutines = "io.arrow-kt" d "arrow-fx-coroutines" w "2.3.0.1" w "2.4.0-alpha.1"
+    val arrow_fx_stm = "io.arrow-kt" d "arrow-fx-stm" w "2.3.0.1" w "2.4.0-alpha.1"
+    val arrow_optics = "io.arrow-kt" d "arrow-optics" w "2.3.0.1" w "2.4.0-alpha.1"
+    val arrow_optics_ksp_plugin = "io.arrow-kt" d "arrow-optics-ksp-plugin" w "2.3.0.1" w "2.4.0-alpha.1"
+    val arrow_optics_reflect = "io.arrow-kt" d "arrow-optics-reflect" w "2.3.0.1" w "2.4.0-alpha.1"
+    val arrow_stack = "io.arrow-kt" d "arrow-stack" w "2.3.0.1" w "2.4.0-alpha.1"
     object Analysis {
       object Kotlin {
         val io_arrow_kt_analysis_kotlin_gradle_plugin = "io.arrow-kt.analysis.kotlin" d "io.arrow-kt.analysis.kotlin.gradle.plugin" w "2.0.2" w "2.0.3-alpha.2"
