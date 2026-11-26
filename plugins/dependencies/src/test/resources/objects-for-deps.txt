@@ -582,7 +582,7 @@ object Com {
       val desugar_jdk_libs = "com.android.tools" d "desugar_jdk_libs" w "2.1.5"
       val r8 = "com.android.tools" d "r8" w "9.5.33" w "9.6.0-alpha15"
       object Build {
-        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.5.2" w "9.6.0-alpha06"
+        val gradle = "com.android.tools.build" d "gradle" w "2.3.0" w "9.5.3" w "9.6.0-alpha06"
       }
     }
   }
@@ -1627,7 +1627,7 @@ object Org {
       val atomicfu_js = "org.jetbrains.kotlinx" d "atomicfu-js" w "0.33.0"
       val atomicfu_jvm = "org.jetbrains.kotlinx" d "atomicfu-jvm" w "0.33.0"
       val atomicfu_wasm_js = "org.jetbrains.kotlinx" d "atomicfu-wasm-js" w "0.33.0"
-      val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.5.0"
+      val browser_wasm_js = "org.jetbrains.kotlinx" d "kotlinx-browser-wasm-js" w "0.6.0"
       val cli = "org.jetbrains.kotlinx" d "kotlinx-cli" w "0.3.6"
       val collections_immutable = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable" w "0.5.2"
       val collections_immutable_jvm = "org.jetbrains.kotlinx" d "kotlinx-collections-immutable-jvm" w "0.5.2"
